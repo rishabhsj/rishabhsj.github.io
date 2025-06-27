@@ -19,27 +19,35 @@
         <li><a href="#projects" class="nav-link">Projects</a></li>
         <li><a href="#skills" class="nav-link">Skills</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li>
+          <a href="resume.pdf" class="resume-btn" download title="Download Resume">
+            <i class="fas fa-file-arrow-down"></i> Resume
+          </a>
+        </li>
+        <li>
+          <button id="theme-toggle" aria-label="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
+        </li>
       </ul>
     </div>
   </nav>
-  <header class="hero">
+  <header class="hero reveal">
     <div class="container hero-content">
       <img src="rj_image.jpg" alt="Rishabh Jain" class="profile-img">
       <div class="hero-text">
-        <h2 class="fade-in">Hi, I'm <span class="highlight">Rishabh Jain</span></h2>
-        <p class="fade-in delay1">Software Developer & Tech Enthusiast</p>
-        <div class="social-links fade-in delay2">
+        <h2 class="typewrite"><span id="typed"></span></h2>
+        <p>Software Developer & Tech Enthusiast</p>
+        <div class="social-links">
           <a href="https://github.com/rishabhsj" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
           <a href="https://linkedin.com/in/rishabhsj23" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          <a href="jain.rishabh.pune@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+          <a href="mailto:your.email@example.com" title="Email"><i class="fas fa-envelope"></i></a>
         </div>
-        <a href="#contact" class="cta fade-in delay3">Let's Connect</a>
+        <a href="#contact" class="cta">Let's Connect</a>
       </div>
     </div>
     <div class="scroll-down"><i class="fas fa-chevron-down"></i></div>
   </header>
   <main>
-    <section id="about" class="section">
+    <section id="about" class="section reveal">
       <div class="container">
         <h2><i class="fas fa-user"></i> About Me</h2>
         <p>
@@ -49,31 +57,38 @@
         </p>
       </div>
     </section>
-    <section id="projects" class="section">
+    <section id="projects" class="section reveal">
       <div class="container">
         <h2><i class="fas fa-code"></i> Projects</h2>
         <div class="projects-grid">
-          <div class="project-card">
+          <div class="project-card" data-title="Project One" data-desc="A web app that solves problem X. Built with React and Node.js." data-link="https://github.com/rishabhsj/project-one">
             <div class="card-top">
               <i class="fas fa-rocket project-icon"></i>
               <h3>Project One</h3>
             </div>
-            <p>Short description of your project. What problem does it solve? Technologies used.</p>
-            <a href="https://github.com/rishabhsj/project-one" target="_blank" class="project-link">View on GitHub <i class="fab fa-github"></i></a>
+            <p>Click to see more details.</p>
           </div>
-          <div class="project-card">
+          <div class="project-card" data-title="Project Two" data-desc="A mobile app for Y. Uses Flutter and Firebase." data-link="https://github.com/rishabhsj/project-two">
             <div class="card-top">
               <i class="fas fa-mobile-alt project-icon"></i>
               <h3>Project Two</h3>
             </div>
-            <p>Short description of your project. Add a link to demo or GitHub repo.</p>
-            <a href="https://github.com/rishabhsj/project-two" target="_blank" class="project-link">View on GitHub <i class="fab fa-github"></i></a>
+            <p>Click to see more details.</p>
           </div>
-          <!-- Add more project cards -->
+          <!-- Add more project cards as needed -->
+        </div>
+      </div>
+      <!-- Project Modal -->
+      <div id="project-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-modal">&times;</span>
+          <h3 id="modal-title"></h3>
+          <p id="modal-desc"></p>
+          <a id="modal-link" href="#" target="_blank">View on GitHub <i class="fab fa-github"></i></a>
         </div>
       </div>
     </section>
-    <section id="skills" class="section">
+    <section id="skills" class="section reveal">
       <div class="container">
         <h2><i class="fas fa-laptop-code"></i> Skills</h2>
         <div class="skills-bars">
@@ -100,7 +115,7 @@
         </div>
       </div>
     </section>
-    <section id="contact" class="section contact-section">
+    <section id="contact" class="section contact-section reveal">
       <div class="container">
         <h2><i class="fas fa-paper-plane"></i> Contact</h2>
         <form class="contact-form" onsubmit="return false;">
@@ -115,6 +130,7 @@
       </div>
     </section>
   </main>
+  <button id="to-top-btn" title="Back to Top"><i class="fas fa-arrow-up"></i></button>
   <footer>
     <div class="container">
       <p>© 2025 Rishabh Jain. Crafted with <i class="fas fa-heart"></i> and code.</p>
