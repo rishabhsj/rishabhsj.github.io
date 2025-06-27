@@ -6,15 +6,16 @@
   <title>Rishabh Jain | Software Engineer & Mentor</title>
   <meta name="description" content="Portfolio of Rishabh Jain - Software Engineer, MERN Stack Developer, Mentor, and Open Source Contributor." />
   <link rel="stylesheet" href="styles.css"/>
-  <link rel="icon" href="profile.jpg"/>
+  <link rel="icon" href="rj_image.jpg"/>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/7878f3e3a7.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="noise-bg"></div>
-  <nav class="navbar">
+  <div id="particles-js"></div>
+  <nav class="navbar glassmorph">
     <div class="container nav-flex">
-      <div class="nav-logo">Rishabh Jain</div>
+      <div class="nav-logo rainbow-gradient-text">Rishabh Jain</div>
       <ul class="nav-links">
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#experience" class="nav-link">Experience</a></li>
@@ -28,14 +29,17 @@
     </div>
   </nav>
 
-  <header class="hero">
+  <header class="hero hero-animated">
     <div class="container hero-flex">
-      <img src="profile.jpg" alt="Rishabh Jain" class="hero-avatar"/>
+      <div class="avatar-glow">
+        <img src="profile.jpg" alt="Rishabh Jain" class="hero-avatar"/>
+        <div class="avatar-glow-circle"></div>
+      </div>
       <div class="hero-info">
-        <h1 class="fade-in-up">Rishabh Jain</h1>
+        <h1 class="fade-in-up">Rishabh Jain <span class="wave">👋</span></h1>
         <h2 class="fade-in-up delay-1">Software Engineer | MERN Stack Developer | Open Source Enthusiast</h2>
-        <p class="hero-desc fade-in-up delay-2">
-          Passionate about building scalable, production-grade applications. <br>
+        <p class="hero-desc fade-in-up delay-2 typewriter">
+          Passionate about building scalable, production-grade applications.<br>
           Loves mentoring, open-source, and coding communities.<br>
           Delhi, India
         </p>
@@ -46,17 +50,25 @@
           <a href="https://twitter.com/rishabhsj23" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
           <a href="https://rishabhjain.tech" target="_blank" title="Website"><i class="fas fa-globe"></i></a>
         </div>
+        <div class="animated-counters">
+          <div class="counter-box"><span class="counter" data-count="100">0</span><span>+ Mentees</span></div>
+          <div class="counter-box"><span class="counter" data-count="10">0</span><span>+ Projects</span></div>
+          <div class="counter-box"><span class="counter" data-count="5">0</span><span>Years Exp</span></div>
+        </div>
       </div>
     </div>
+    <div class="scroll-hint bounce">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+    <svg class="hero-divider" viewBox="0 0 1440 120"><path fill="#14151b" fill-opacity="1" d="M0,80L60,90C120,100,240,120,360,110C480,100,600,60,720,60C840,60,960,100,1080,110C1200,120,1320,100,1380,90L1440,80L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path></svg>
   </header>
 
   <main>
-    <section id="about" class="fade-in-section">
+    <section id="about" class="fade-in-section glassmorph">
       <div class="container">
-        <h2>About Me</h2>
+        <h2 class="section-head">About Me</h2>
         <p>
-          Hi, I'm <b>Rishabh Jain</b> — a passionate software engineer based in Delhi, India.<br>
-          <br>
+          Hi, I'm <b>Rishabh Jain</b> — a passionate software engineer based in Delhi, India.<br><br>
           <b>Headline:</b> Software Engineer | MERN Stack Developer | Open Source Enthusiast | GSSoC’23 | Ex-Intern @Cogoport | Coding Mentor | Building Scalable Products
           <br><br>
           <b>Summary:</b><br>
@@ -65,12 +77,12 @@
       </div>
     </section>
 
-    <section id="experience" class="fade-in-section">
+    <section id="experience" class="fade-in-section glassmorph">
       <div class="container">
-        <h2>Experience</h2>
+        <h2 class="section-head">Experience</h2>
         <div class="timeline">
           <div class="timeline-item">
-            <div class="timeline-dot"></div>
+            <div class="timeline-dot neon-glow"></div>
             <div class="timeline-content">
               <h3>Software Engineer</h3>
               <span>Cogoport &mdash; May 2023 – Present</span>
@@ -82,7 +94,7 @@
             </div>
           </div>
           <div class="timeline-item">
-            <div class="timeline-dot"></div>
+            <div class="timeline-dot neon-glow"></div>
             <div class="timeline-content">
               <h3>Coding Mentor</h3>
               <span>Freelance &mdash; 2022 – Present</span>
@@ -93,7 +105,7 @@
             </div>
           </div>
           <div class="timeline-item">
-            <div class="timeline-dot"></div>
+            <div class="timeline-dot neon-glow"></div>
             <div class="timeline-content">
               <h3>Software Engineer Intern</h3>
               <span>Cogoport &mdash; Jan 2023 – May 2023</span>
@@ -107,12 +119,12 @@
       </div>
     </section>
 
-    <section id="education" class="fade-in-section">
+    <section id="education" class="fade-in-section glassmorph">
       <div class="container">
-        <h2>Education</h2>
+        <h2 class="section-head">Education</h2>
         <div class="timeline">
           <div class="timeline-item">
-            <div class="timeline-dot"></div>
+            <div class="timeline-dot neon-glow"></div>
             <div class="timeline-content">
               <h3>B.Tech, Computer Science</h3>
               <span>Rajasthan Technical University &mdash; 2019 – 2023</span>
@@ -126,43 +138,44 @@
       </div>
     </section>
 
-    <section id="skills" class="fade-in-section">
+    <section id="skills" class="fade-in-section glassmorph">
       <div class="container">
-        <h2>Skills</h2>
+        <h2 class="section-head">Skills</h2>
         <div class="skills-list">
-          <span>JavaScript</span>
-          <span>TypeScript</span>
-          <span>React.js</span>
-          <span>Node.js</span>
-          <span>Express.js</span>
-          <span>MongoDB</span>
-          <span>REST APIs</span>
-          <span>Git & GitHub</span>
-          <span>Open Source</span>
-          <span>Mentoring</span>
-          <span>Problem Solving</span>
-          <span>Leadership</span>
+          <span class="neon-chip">JavaScript</span>
+          <span class="neon-chip">TypeScript</span>
+          <span class="neon-chip">React.js</span>
+          <span class="neon-chip">Node.js</span>
+          <span class="neon-chip">Express.js</span>
+          <span class="neon-chip">MongoDB</span>
+          <span class="neon-chip">REST APIs</span>
+          <span class="neon-chip">Git & GitHub</span>
+          <span class="neon-chip">Open Source</span>
+          <span class="neon-chip">Mentoring</span>
+          <span class="neon-chip">Problem Solving</span>
+          <span class="neon-chip">Leadership</span>
         </div>
+        <canvas id="skills-radar"></canvas>
       </div>
     </section>
 
-    <section id="projects" class="fade-in-section">
+    <section id="projects" class="fade-in-section glassmorph">
       <div class="container">
-        <h2>Projects</h2>
+        <h2 class="section-head">Projects</h2>
         <div class="projects-grid">
-          <div class="project-card">
+          <div class="project-card tilt-card">
             <img src="projects/taskify.png" alt="Taskify" />
             <h3>Taskify</h3>
             <p>Full-stack Kanban productivity app (MERN) with real-time collaboration, drag-drop UI and notifications.</p>
             <a href="https://github.com/rishabhsj/taskify" target="_blank">View on GitHub</a>
           </div>
-          <div class="project-card">
+          <div class="project-card tilt-card">
             <img src="projects/gsoc.png" alt="GSSoC’23" />
             <h3>GSSoC’23 Open Source Contributions</h3>
             <p>Major open source work: scalable backend APIs, modular code, and mentoring contributors in GSSoC’23.</p>
             <a href="https://github.com/rishabhsj" target="_blank">View on GitHub</a>
           </div>
-          <div class="project-card">
+          <div class="project-card tilt-card">
             <img src="projects/mentor.png" alt="Mentorship Platform" />
             <h3>Mentorship Platform</h3>
             <p>Web platform connecting mentors and mentees in tech, used by 100+ learners for guidance & learning paths.</p>
@@ -172,9 +185,9 @@
       </div>
     </section>
 
-    <section id="certifications" class="fade-in-section">
+    <section id="certifications" class="fade-in-section glassmorph">
       <div class="container">
-        <h2>Certifications</h2>
+        <h2 class="section-head">Certifications</h2>
         <ul class="cert-list">
           <li>
             <strong>Google Cloud Career Readiness Certificate</strong> – Google (2023)
@@ -182,17 +195,16 @@
           <li>
             <strong>JavaScript Algorithms & Data Structures</strong> – freeCodeCamp (2022)
           </li>
-          <!-- Add more certifications as relevant -->
         </ul>
       </div>
     </section>
 
-    <section id="volunteer" class="fade-in-section">
+    <section id="volunteer" class="fade-in-section glassmorph">
       <div class="container">
-        <h2>Volunteer Experience</h2>
+        <h2 class="section-head">Volunteer Experience</h2>
         <div class="timeline">
           <div class="timeline-item">
-            <div class="timeline-dot"></div>
+            <div class="timeline-dot neon-glow"></div>
             <div class="timeline-content">
               <h3>Open Source Contributor & Mentor</h3>
               <span>GirlScript Summer of Code (GSSoC) — 2023</span>
@@ -206,9 +218,9 @@
       </div>
     </section>
 
-    <section id="contact" class="fade-in-section">
+    <section id="contact" class="fade-in-section glassmorph">
       <div class="container">
-        <h2>Contact</h2>
+        <h2 class="section-head">Contact</h2>
         <form class="contact-form" onsubmit="return false;">
           <div class="form-row">
             <input type="text" placeholder="Your Name" required>
@@ -226,6 +238,8 @@
       <p>© 2025 Rishabh Jain. Crafted in Delhi, India.</p>
     </div>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
