@@ -3,83 +3,116 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Rishabh Jain | Portfolio</title>
+  <title>Rishabh Jain | Developer & Mentor</title>
+  <meta name="description" content="The creative, AI-powered portfolio of Rishabh Jain, MERN Developer, Mentor, and Open Source Advocate.">
   <link rel="stylesheet" href="styles.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="profile.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/7878f3e3a7.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <nav id="navbar">
+  <div id="bg-morph"></div>
+  <nav class="glassnav">
     <div class="container">
-      <h1 class="nav-logo">Rishabh Jain</h1>
+      <div class="nav-brand">RJ</div>
       <ul>
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#timeline" class="nav-link">Journey</a></li>
+        <li><a href="#blog" class="nav-link">Blog</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
         <li>
-          <a href="resume.pdf" class="resume-btn" download title="Download Resume">
-            <i class="fas fa-file-arrow-down"></i> Resume
-          </a>
-        </li>
-        <li>
-          <button id="theme-toggle" aria-label="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
+          <button id="theme-toggle" title="Toggle theme"><i class="fas fa-moon"></i></button>
         </li>
       </ul>
     </div>
   </nav>
-  <header class="hero reveal">
+  <header class="hero-section">
+    <canvas id="hero-canvas"></canvas>
     <div class="container hero-content">
-      <img src="rj_image.jpg" alt="Rishabh Jain" class="profile-img">
-      <div class="hero-text">
-        <h2 class="typewrite"><span id="typed"></span></h2>
-        <p>Software Developer & Tech Enthusiast</p>
-        <div class="social-links">
-          <a href="https://github.com/rishabhsj" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-          <a href="https://linkedin.com/in/rishabhsj23" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          <a href="mailto:your.email@example.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <div class="hero-avatar">
+        <img src="profile.jpg" alt="Rishabh Jain">
+        <span class="glass-badge">Open Source & Mentor</span>
+      </div>
+      <div class="hero-intro">
+        <h1>
+          <span id="ai-intro">Loading intro...</span>
+        </h1>
+        <h2 class="neon-text">Building with <span class="animated-gradient">Code & Community</span></h2>
+        <div class="hero-hl">
+          <span class="chip glass">MERN Stack</span>
+          <span class="chip glass">Mentor</span>
+          <span class="chip glass">100+ Mentees</span>
+          <span class="chip glass">GSSoC'23</span>
         </div>
-        <a href="#contact" class="cta">Let's Connect</a>
+        <div class="hero-counters">
+          <div class="counter-card glass">
+            <span class="counter" data-target="30">0</span>
+            <p>Projects</p>
+          </div>
+          <div class="counter-card glass">
+            <span class="counter" data-target="4">0</span>
+            <p>Years Exp</p>
+          </div>
+          <div class="counter-card glass">
+            <span class="counter" data-target="100">0</span>
+            <p>Mentees</p>
+          </div>
+        </div>
+        <div class="hero-socials">
+          <a href="https://github.com/rishabhsj" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/rishabhsj23" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:rishabhsj23@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+        <a href="#contact" class="cta-glass">Let's Connect</a>
       </div>
     </div>
-    <div class="scroll-down"><i class="fas fa-chevron-down"></i></div>
+    <svg class="wave-divider" viewBox="0 0 1440 110"><path fill="#181c34" fill-opacity="1" d="M0,96L30,85.3C60,75,120,53,180,48C240,43,300,53,360,74.7C420,96,480,128,540,133.3C600,139,660,117,720,117.3C780,117,840,139,900,138.7C960,139,1020,117,1080,101.3C1140,85,1200,75,1260,74.7C1320,75,1380,85,1410,90.7L1440,96L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z"></path></svg>
   </header>
   <main>
-    <section id="about" class="section reveal">
+    <section id="about" class="section glass">
       <div class="container">
-        <h2><i class="fas fa-user"></i> About Me</h2>
+        <h2>About Me</h2>
         <p>
-          I'm a creative software developer with experience in building dynamic web and mobile applications.
-          My interests include modern JavaScript frameworks, cloud technologies, and UI/UX design.
-          I love collaborating on open source, exploring new ideas, and learning every day!
+          Hi, I'm Rishabh Jain. I specialize in building scalable products using the MERN stack, mentoring future talent, and contributing to open source. I thrive at the intersection of code and community.
         </p>
-      </div>
-    </section>
-    <section id="projects" class="section reveal">
-      <div class="container">
-        <h2><i class="fas fa-code"></i> Projects</h2>
-        <div class="projects-grid">
-          <div class="project-card" data-title="Project One" data-desc="A web app that solves problem X. Built with React and Node.js." data-link="https://github.com/rishabhsj/project-one">
-            <div class="card-top">
-              <i class="fas fa-rocket project-icon"></i>
-              <h3>Project One</h3>
-            </div>
-            <p>Click to see more details.</p>
-          </div>
-          <div class="project-card" data-title="Project Two" data-desc="A mobile app for Y. Uses Flutter and Firebase." data-link="https://github.com/rishabhsj/project-two">
-            <div class="card-top">
-              <i class="fas fa-mobile-alt project-icon"></i>
-              <h3>Project Two</h3>
-            </div>
-            <p>Click to see more details.</p>
-          </div>
-          <!-- Add more project cards as needed -->
+        <div class="skills-rings">
+          <div class="ring-skill" data-pct="95"><span>JS</span></div>
+          <div class="ring-skill" data-pct="92"><span>React</span></div>
+          <div class="ring-skill" data-pct="90"><span>Node</span></div>
+          <div class="ring-skill" data-pct="90"><span>Mongo</span></div>
+          <div class="ring-skill" data-pct="85"><span>Mentor</span></div>
         </div>
       </div>
-      <!-- Project Modal -->
-      <div id="project-modal" class="modal">
+    </section>
+    <section id="projects" class="section glass">
+      <div class="container">
+        <h2>Projects</h2>
+        <div class="portfolio-filter">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="mern">MERN</button>
+          <button class="filter-btn" data-filter="open-source">Open Source</button>
+          <button class="filter-btn" data-filter="mentoring">Mentoring</button>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card tilt" data-category="mern" data-title="Taskify" data-desc="A full-stack Kanban productivity app (MERN stack) with real-time collaboration and drag-drop UI." data-link="https://github.com/rishabhsj/taskify">
+            <img src="projects/taskify.png" alt="Taskify" class="project-img">
+            <h3>Taskify</h3>
+            <div class="tags"><span class="tag">MERN</span><span class="tag">Real-time</span></div>
+          </div>
+          <div class="project-card tilt" data-category="open-source" data-title="GSSoC Contributions" data-desc="Significant contributions to open-source projects in GSSoC’23, focusing on scalable backend APIs." data-link="https://github.com/rishabhsj">
+            <img src="projects/gsoc.png" alt="GSSoC" class="project-img">
+            <h3>GSSoC’23</h3>
+            <div class="tags"><span class="tag">Open Source</span><span class="tag">Node.js</span></div>
+          </div>
+          <div class="project-card tilt" data-category="mentoring" data-title="Mentorship Platform" data-desc="Developed a web platform connecting mentors and mentees in tech, used by 100+ learners." data-link="https://github.com/rishabhsj/mentorship-platform">
+            <img src="projects/mentor.png" alt="Mentorship Platform" class="project-img">
+            <h3>Mentorship Platform</h3>
+            <div class="tags"><span class="tag">Mentoring</span><span class="tag">Community</span></div>
+          </div>
+        </div>
+      </div>
+      <div id="project-modal" class="modal glass">
         <div class="modal-content">
           <span class="close-modal">&times;</span>
           <h3 id="modal-title"></h3>
@@ -88,52 +121,99 @@
         </div>
       </div>
     </section>
-    <section id="skills" class="section reveal">
+    <section id="timeline" class="section glass">
       <div class="container">
-        <h2><i class="fas fa-laptop-code"></i> Skills</h2>
-        <div class="skills-bars">
-          <div class="skill">
-            <span>JavaScript</span>
-            <div class="bar"><div class="progress" style="width: 90%"></div></div>
+        <h2>Journey</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>Software Engineer</h3>
+              <span>2023 - Present</span>
+              <p>Cogoport | MERN stack, scalable web apps.</p>
+            </div>
           </div>
-          <div class="skill">
-            <span>Python</span>
-            <div class="bar"><div class="progress" style="width: 85%"></div></div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>Contributor, GSSoC '23</h3>
+              <span>2023</span>
+              <p>Open source contributions & community work.</p>
+            </div>
           </div>
-          <div class="skill">
-            <span>React</span>
-            <div class="bar"><div class="progress" style="width: 80%"></div></div>
-          </div>
-          <div class="skill">
-            <span>Node.js</span>
-            <div class="bar"><div class="progress" style="width: 75%"></div></div>
-          </div>
-          <div class="skill">
-            <span>HTML/CSS</span>
-            <div class="bar"><div class="progress" style="width: 95%"></div></div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>B.Tech, Computer Science</h3>
+              <span>2019 - 2023</span>
+              <p>Institute of Technology | Peer mentor, dev clubs.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
-    <section id="contact" class="section contact-section reveal">
+    <section id="testimonials" class="section glass">
       <div class="container">
-        <h2><i class="fas fa-paper-plane"></i> Contact</h2>
+        <h2>Testimonials</h2>
+        <div class="testimonial-carousel">
+          <div class="testimonial active">
+            <p>“Rishabh is a fantastic developer and teammate—always delivers on time!”</p>
+            <span>- Jane Doe, Product Manager</span>
+          </div>
+          <div class="testimonial">
+            <p>“His attention to detail and creativity are top-notch.”</p>
+            <span>- John Smith, Tech Lead</span>
+          </div>
+          <div class="testimonial">
+            <p>“A pleasure to work with on complex projects.”</p>
+            <span>- Priya K., Client</span>
+          </div>
+        </div>
+        <div class="testimonial-controls">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+    </section>
+    <section id="blog" class="section glass">
+      <div class="container">
+        <h2>Blog</h2>
+        <div class="blog-grid">
+          <div class="blog-card glass">
+            <h3>How AI Can Supercharge Your Portfolio</h3>
+            <p>June 27, 2025</p>
+            <p class="blog-desc">Discover how integrating AI tools can make your developer portfolio dynamic, interactive, and memorable.</p>
+            <a href="#" class="blog-link">Read More</a>
+          </div>
+          <div class="blog-card glass">
+            <h3>Top Tips for Mentoring in Tech</h3>
+            <p>June 1, 2025</p>
+            <p class="blog-desc">My experience mentoring 100+ students and how you can make a difference.</p>
+            <a href="#" class="blog-link">Read More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="section glass">
+      <div class="container">
+        <h2>Contact</h2>
         <form class="contact-form" onsubmit="return false;">
           <div class="form-row">
             <input type="text" placeholder="Your Name" required>
             <input type="email" placeholder="Your Email" required>
           </div>
           <textarea placeholder="Your Message" required></textarea>
-          <button type="submit" class="cta">Send Message</button>
+          <button type="submit" class="cta-glass">Send Message</button>
           <div class="form-message" id="form-message"></div>
         </form>
       </div>
     </section>
   </main>
   <button id="to-top-btn" title="Back to Top"><i class="fas fa-arrow-up"></i></button>
-  <footer>
+  <footer class="glass">
     <div class="container">
-      <p>© 2025 Rishabh Jain. Crafted with <i class="fas fa-heart"></i> and code.</p>
+      <p>© 2025 Rishabh Jain. Designed with <i class="fas fa-heart"></i> and AI.</p>
     </div>
   </footer>
   <script src="script.js"></script>
