@@ -3,24 +3,29 @@
   --secondary: #00bcd4;
   --accent: #f44336;
   --bg: #f8f9fa;
+  --bg-dark: #10131a;
   --white: #fff;
   --gray: #222;
+  --gray-light: #757575;
   --card: #ffffffdd;
+  --card-dark: #1e2533ee;
   --shadow: 0 4px 18px rgba(44,62,80,0.13);
   --radius: 14px;
   --font-main: 'Montserrat', Arial, sans-serif;
   --font-alt: 'Roboto', Arial, sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: var(--font-main);
   background: var(--bg);
-  margin: 0;
   color: var(--gray);
+  margin: 0;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark {
+  background: var(--bg-dark);
+  color: var(--white);
 }
 
 .container {
@@ -36,6 +41,10 @@ nav {
   top: 0;
   z-index: 100;
   transition: background 0.3s;
+}
+
+body.dark nav {
+  background: #151a24;
 }
 
 .nav-logo {
@@ -55,9 +64,10 @@ nav .container {
 nav ul {
   list-style: none;
   display: flex;
-  gap: 2em;
+  gap: 1.6em;
   margin: 0;
   padding: 0;
+  align-items: center;
 }
 
 nav a {
@@ -71,11 +81,57 @@ nav a {
   border-bottom: 2px solid transparent;
 }
 
+body.dark nav a {
+  color: var(--white);
+}
+
 nav a:hover,
 nav a.active {
   color: var(--secondary);
   border-bottom: 2px solid var(--secondary);
 }
+
+.resume-btn {
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+  border-radius: 18px;
+  padding: 0.35em 1em;
+  font-size: 1em;
+  margin-left: 0.5em;
+  background: none;
+  transition: background 0.19s, color 0.19s;
+}
+
+body.dark .resume-btn {
+  color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+.resume-btn:hover {
+  background: var(--primary);
+  color: var(--white);
+}
+
+body.dark .resume-btn:hover {
+  background: var(--secondary);
+  color: var(--bg-dark);
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: 1.2em;
+  margin-left: 0.6em;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+body.dark #theme-toggle {
+  color: var(--secondary);
+}
+
+#theme-toggle:focus { outline: 2px solid var(--secondary); }
 
 .hero {
   background: linear-gradient(120deg, var(--primary) 70%, var(--secondary));
@@ -85,6 +141,12 @@ nav a.active {
   position: relative;
   min-height: 60vh;
   overflow: hidden;
+  transition: background 0.3s;
+}
+
+body.dark .hero {
+  background: linear-gradient(120deg, #232d44 70%, #0a4850);
+  color: var(--white);
 }
 
 .hero-content {
@@ -112,16 +174,17 @@ nav a.active {
 }
 
 .hero-text h2 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   margin-bottom: 0.4em;
+  min-height: 2.5em;
 }
 
-.highlight {
-  color: var(--secondary);
-  background: var(--white);
-  border-radius: 4px;
-  padding: 0 0.4em;
+.typewrite span {
+  border-right: 2px solid var(--white);
+  padding-right: 0.18em;
+  animation: blink-caret 0.8s step-end infinite;
 }
+@keyframes blink-caret { 50% { border-color: transparent; } }
 
 .hero-text p {
   font-family: var(--font-alt);
@@ -131,7 +194,7 @@ nav a.active {
 
 .social-links {
   display: flex;
-  gap: 1.2em;
+  gap: 1.1em;
   margin: 0.7em 0 1.2em 0;
 }
 
@@ -187,13 +250,6 @@ nav a.active {
   100% { transform: translateX(-50%) translateY(12px);}
 }
 
-/* Fade-in Animations */
-.fade-in { opacity: 0; animation: fadein 1.2s forwards; }
-.fade-in.delay1 { animation-delay: 0.5s; }
-.fade-in.delay2 { animation-delay: 1s; }
-.fade-in.delay3 { animation-delay: 1.4s; }
-@keyframes fadein { to { opacity: 1; }}
-
 main {
   margin-top: 1.7em;
 }
@@ -201,6 +257,16 @@ main {
 .section {
   padding: 3em 0 2.5em;
   scroll-margin-top: 100px;
+  opacity: 0;
+  transform: translateY(45px);
+  transition: opacity 0.7s, transform 0.7s;
+}
+
+.section.reveal,
+.hero.reveal,
+.contact-section.reveal {
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 .section h2 {
@@ -208,6 +274,7 @@ main {
   margin-bottom: 0.7em;
   font-size: 1.7em;
 }
+body.dark .section h2 { color: var(--secondary); }
 
 .projects-grid {
   display: grid;
@@ -221,17 +288,24 @@ main {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: 1.3em 1.1em 1.2em;
-  transition: transform 0.18s, box-shadow 0.22s;
+  transition: transform 0.18s, box-shadow 0.22s, background 0.23s;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+body.dark .project-card {
+  background: var(--card-dark);
 }
 
 .project-card:hover {
   transform: translateY(-9px) scale(1.032);
   box-shadow: 0 8px 32px rgba(44,62,80,0.17);
+  border: 2px solid var(--secondary);
 }
 
 .card-top {
@@ -244,19 +318,6 @@ main {
   font-size: 1.2em;
   color: var(--secondary);
   margin-right: 0.4em;
-}
-
-.project-link {
-  margin-top: 0.7em;
-  color: var(--primary);
-  font-weight: 500;
-  text-decoration: none;
-  transition: color 0.18s;
-}
-
-.project-link:hover {
-  color: var(--accent);
-  text-decoration: underline;
 }
 
 .skills-bars {
@@ -286,6 +347,10 @@ main {
   margin-top: 0.2em;
 }
 
+body.dark .bar {
+  background: #33394d;
+}
+
 .progress {
   background: linear-gradient(90deg,var(--secondary),var(--primary));
   height: 100%;
@@ -296,6 +361,10 @@ main {
 .contact-section {
   background: linear-gradient(95deg, #e3f2fd 70%, #e0f7fa);
   border-radius: var(--radius);
+  transition: background 0.3s;
+}
+body.dark .contact-section {
+  background: linear-gradient(95deg, #223049 70%, #1e2533);
 }
 
 .contact-form {
@@ -311,6 +380,10 @@ main {
   animation: fadein 1.4s;
 }
 
+body.dark .contact-form {
+  background: #181c29;
+}
+
 .contact-form input, .contact-form textarea {
   width: 100%;
   border: 1.4px solid #b3b3b3;
@@ -320,8 +393,15 @@ main {
   font-family: var(--font-alt);
   margin-bottom: 0.2em;
   background: #f9f9ff;
-  transition: border 0.18s;
+  transition: border 0.18s, background 0.18s;
   resize: none;
+}
+
+body.dark .contact-form input,
+body.dark .contact-form textarea {
+  background: #232d44;
+  color: var(--white);
+  border-color: #3d4a63;
 }
 
 .contact-form input:focus, .contact-form textarea:focus {
@@ -356,6 +436,12 @@ footer {
   padding: 1.2em 0 1em;
   font-size: 1em;
   margin-top: 2em;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark footer {
+  background: #151a24;
+  color: #aaa;
 }
 
 footer i.fa-heart {
@@ -363,6 +449,67 @@ footer i.fa-heart {
   font-size: 1.1em;
   vertical-align: text-bottom;
 }
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.47);
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  background: var(--white);
+  color: var(--gray);
+  padding: 2em 2.5em;
+  border-radius: 12px;
+  box-shadow: 0 2px 32px rgba(0,0,0,0.23);
+  position: relative;
+  max-width: 400px;
+  min-width: 240px;
+  text-align: center;
+  animation: fadein 0.45s;
+}
+body.dark .modal-content {
+  background: #232d44;
+  color: var(--white);
+}
+.close-modal {
+  position: absolute;
+  top: 0.7em;
+  right: 1em;
+  font-size: 1.5em;
+  color: var(--accent);
+  cursor: pointer;
+  transition: color 0.15s;
+}
+.close-modal:hover { color: var(--primary); }
+#modal-link { color: var(--primary); font-weight: 500; text-decoration: none; }
+#modal-link:hover { color: var(--secondary); text-decoration: underline; }
+
+/* Scroll to Top Button */
+#to-top-btn {
+  display: none;
+  position: fixed;
+  bottom: 2.2em;
+  right: 2.1em;
+  z-index: 500;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  width: 48px; height: 48px;
+  font-size: 1.6em;
+  box-shadow: 0 2px 16px rgba(44,62,80,0.19);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, opacity 0.2s;
+  opacity: 0.85;
+}
+#to-top-btn:hover { background: var(--accent); color: var(--white); }
+
+@keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
 
 /* Responsive Design */
 @media (max-width: 800px) {
@@ -374,11 +521,12 @@ footer i.fa-heart {
 @media (max-width: 650px) {
   .profile-img { width: 100px; height: 100px; }
   .hero-content { gap: 0.7em; }
-  .hero-text h2 { font-size: 1.3em; }
-  nav ul { gap: 1em; }
+  .hero-text h2 { font-size: 1.1em; }
+  nav ul { gap: 0.6em; }
   .section { padding: 1.7em 0 1.2em; }
   .contact-form { padding: 1.1em 0.5em; }
   .skills-bars { gap: 0.7em; }
   .bar { height: 11px; }
   .nav-logo { font-size: 1.1rem; }
+  .modal-content { padding: 1.1em 0.8em; }
 }
