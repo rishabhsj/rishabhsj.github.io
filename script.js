@@ -86,11 +86,41 @@ document.querySelectorAll('.tilt-card').forEach(card => {
     const x = e.clientX - rect.left, y = e.clientY - rect.top;
     const xc = rect.width/2, yc = rect.height/2;
     const dx = (x-xc)/xc, dy = (y-yc)/yc;
-    card.style.transform = `rotateY(${-dx*7}deg) rotateX(${dy*7}deg) scale(1.05)`;
+    card.style.transform = `rotateY(${-dx*8}deg) rotateX(${dy*8}deg) scale(1.07)`;
   });
   card.addEventListener('mouseleave', function(){
     card.style.transform = '';
   });
+});
+
+// --- Neon hover highlight for skill chips ---
+document.querySelectorAll('.neon-chip').forEach(chip => {
+  chip.addEventListener('mousemove', function(e) {
+    const rect = chip.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    chip.style.setProperty('--chip-glow-pos', `${x}px`);
+  });
+  chip.addEventListener('mouseleave', function() {
+    chip.style.setProperty('--chip-glow-pos', `50%`);
+  });
+});
+
+// --- Timeline connector animation ---
+window.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.timeline').forEach(tl => {
+    const line = tl.querySelector('::before');
+    if (line) {
+      line.style.animation = 'timelineScroll 3s linear infinite alternate';
+    }
+  });
+});
+
+// --- Section divider parallax ---
+window.addEventListener('scroll', function() {
+  const divider = document.querySelector('.hero-divider');
+  if (!divider) return;
+  const y = window.scrollY * 0.25;
+  divider.style.transform = `translateY(${y}px)`;
 });
 
 // --- Contact Form Demo Handler ---
@@ -101,3 +131,19 @@ document.querySelector('.contact-form').addEventListener('submit', function(e) {
   msg.textContent = 'Thanks for your message! (Demo only)';
   setTimeout(() => { msg.textContent = ''; }, 3200);
 });
+
+// --- Floating glowing bubbles animation ---
+function createGlowingBubbles() {
+  const numBubbles = 10;
+  for (let i = 0; i < numBubbles; i++) {
+    const b = document.createElement('div');
+    b.className = 'glowing-bubble';
+    b.style.left = `${Math.random() * 100}%`;
+    b.style.animationDuration = `${6 + Math.random() * 8}s`;
+    b.style.background = `radial-gradient(circle, #00ffe1bb 0%, #ff3b8d44 60%, transparent 100%)`;
+    b.style.width = b.style.height = `${40 + Math.random() * 60}px`;
+    b.style.bottom = `${Math.random() * 25 + 5}px`;
+    document.body.appendChild(b);
+  }
+}
+window.addEventListener('DOMContentLoaded', createGlowingBubbles);
