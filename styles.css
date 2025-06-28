@@ -494,3 +494,19 @@ footer i.fa-heart {
   .container { padding: 0 2vw;}
   .section-head { font-size: 1.4em;}
 }
+.glowing-bubble {
+  position: fixed;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 50%;
+  opacity: 0.11;
+  animation: floatBubble linear infinite;
+  left: 50vw;
+  bottom: 0;
+}
+@keyframes floatBubble {
+  to {
+    transform: translateY(-95vh) scale(1.07) rotate(25deg);
+    opacity: 0;
+  }
+}
