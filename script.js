@@ -10,8 +10,8 @@ let activeSection = 'home';
 
 // Typing animation texts
 const typingTexts = [
-    "Software Engineer | MERN Stack Developer",
-    "Open Source Enthusiast | GSSoC'23",
+    "Data Engineer",
+    "MSc Artificial Intelligence & Robotics",
     "Coding Mentor | Building Scalable Products"
 ];
 
