@@ -8,77 +8,108 @@ let currentCharIndex = 0;
 let isDeleting = false;
 let activeSection = 'home';
 
-// Typing animation texts
+// Typing animation texts (updated from new HTML)
 const typingTexts = [
     "Data Engineer",
     "MSc Artificial Intelligence & Robotics",
     "Coding Mentor | Building Scalable Products"
 ];
 
-// Project data for modals
+// Project data for modals (updated with new projects from HTML)
 const projectData = {
-    taskify: {
-        title: "Taskify",
+    user_auth: {
+        title: "User Authentication using NLP & ML",
         image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-        description: "Taskify is a comprehensive Kanban-style productivity application built with the MERN stack. It features real-time collaboration capabilities, intuitive drag-and-drop functionality, and comprehensive notification systems to keep teams synchronized and productive.",
+        description: "Built biometric authentication system using facial and speech recognition with Python, TensorFlow, and OpenCV. Processed 1+ million audio and image records.",
         features: [
-            "Real-time collaboration with Socket.io",
-            "Drag-and-drop Kanban board interface",
-            "User authentication and authorization",
-            "Push notifications for task updates",
-            "File attachments and comments",
-            "Team management and invitations"
+            "Facial recognition using OpenCV",
+            "Speech recognition with NLP",
+            "ML models for authentication",
+            "Processing large-scale audio/image data"
         ],
-        technologies: ["React", "Node.js", "MongoDB", "Socket.io", "Redux"],
+        technologies: ["Python", "TensorFlow", "OpenCV", "+1 more"],
         techStack: {
-            "Frontend": "React.js, Redux, Tailwind CSS",
-            "Backend": "Node.js, Express.js, Socket.io",
-            "Database": "MongoDB, Mongoose",
-            "Deployment": "Heroku, Netlify"
+            "Languages": "Python",
+            "Frameworks": "TensorFlow, OpenCV",
+            "Tools": "NLP libraries",
+            "Impact": "Secure authentication system"
         },
-        github: "https://github.com/rishabhsj/taskify"
+        github: "https://github.com/rishabhsj/User_Authentication_Using_Facial-Speech_Recognition"
     },
-    gssoc: {
-        title: "GSSoC'23 Contributions",
+    smart_control: {
+        title: "Smart Control System in Automobile",
         image: "https://images.unsplash.com/photo-1556075798-4825dfaaf498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-        description: "During GirlScript Summer of Code 2023, I actively contributed to multiple open source projects while mentoring new contributors. This experience involved developing scalable backend APIs, writing modular code, and fostering an inclusive community environment.",
+        description: "Developed real-time data pipeline processing sensor telemetry using Python and Raspberry Pi for automated vehicle controls with sub-second latency.",
         features: [
-            "Mentored 50+ new contributors during GSSoC 2023",
-            "Contributed to 15+ open source projects",
-            "Reviewed 200+ pull requests",
-            "Conducted weekly office hours for contributor support",
-            "Developed scalable backend APIs for multiple projects",
-            "Improved documentation and onboarding processes"
+            "Real-time sensor data processing",
+            "Automated vehicle controls",
+            "Sub-second latency optimization",
+            "Raspberry Pi integration"
         ],
-        technologies: ["Open Source", "Mentoring", "APIs", "JavaScript", "Python"],
+        technologies: ["Python", "IOT", "Real-time", "+2 more"],
         techStack: {
-            "Languages": "JavaScript, Python, TypeScript",
-            "Frameworks": "React, Node.js, Express",
-            "Tools": "Git, GitHub, CI/CD",
-            "Impact": "150+ PRs merged, 10,000+ lines of code"
+            "Languages": "Python",
+            "Frameworks": "Raspberry Pi",
+            "Tools": "Sensor telemetry",
+            "Impact": "Automated systems"
         },
-        github: "https://github.com/rishabhsj"
+        github: "https://github.com/rishabhsj/Smart-Control-System-in-Automobile"
     },
-    mentorship: {
-        title: "Mentorship Platform",
+    online_exam: {
+        title: "Online Examination Portal & College Predictor",
         image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-        description: "A comprehensive web platform designed to connect mentors and mentees in the tech industry. The platform facilitates meaningful mentorship relationships through intelligent matching, integrated communication tools, and progress tracking capabilities.",
+        description: "Designed normalised MySQL schemas and built SQL-based analytics for exam results and college prediction using statistical algorithms.",
         features: [
-            "Mentor-mentee matching algorithm",
-            "Integrated video calling and chat system",
-            "Learning path creation and tracking",
-            "Progress monitoring and analytics",
-            "Resource sharing and homework assignments",
-            "Community forums and group discussions"
+            "Normalized MySQL schemas",
+            "SQL-based analytics",
+            "Exam results processing",
+            "College prediction algorithms"
         ],
-        technologies: ["React", "Express", "MongoDB", "Socket.io"],
+        technologies: ["MySQL", "Postgres", "Analytics", "+1 more"],
         techStack: {
-            "Frontend": "React.js, Material-UI, WebRTC",
-            "Backend": "Express.js, Socket.io",
-            "Database": "MongoDB with aggregation pipelines",
-            "Analytics": "Custom dashboard with charts"
+            "Databases": "MySQL, Postgres",
+            "Tools": "SQL analytics",
+            "Impact": "Educational portal"
         },
-        github: "https://github.com/rishabhsj/mentorship-platform"
+        github: "https://github.com/rishabhsj/Online-Examination-Portal"
+    },
+    home_automation: {
+        title: "Home Automation and Security System",
+        image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400", // Placeholder, as URL invalid
+        description: "College-sponsored project on home automation system using IOT for controlling the home appliances and various devices using the internet and cloud to advance security in the home.",
+        features: [
+            "IOT-based appliance control",
+            "Cloud integration",
+            "Security enhancement",
+            "Remote device management"
+        ],
+        technologies: ["IOT", "Python", "Cloud Computing", "+1 more"],
+        techStack: {
+            "Languages": "Python",
+            "Frameworks": "IOT devices",
+            "Tools": "Cloud services",
+            "Impact": "Smart home security"
+        },
+        github: "https://github.com/rishabhsj/Home-Automation-and-Security-System"
+    },
+    training_app: {
+        title: "Training & Placement App",
+        image: "https://images.unsplash.com/photo-1556075798-4825dfaaf498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400", // Placeholder, as URL invalid
+        description: "Android app for Training and Placement Cell of PCET’s PCCOER involving placement activities and student interactions.",
+        features: [
+            "Placement activities management",
+            "Student interaction tools",
+            "Android-based interface",
+            "Backend integration with PHP/MySQL"
+        ],
+        technologies: ["Android Studio", "PHP", "MYSQL", "+1 more"],
+        techStack: {
+            "Frontend": "Android Studio",
+            "Backend": "PHP",
+            "Database": "MYSQL",
+            "Impact": "Educational app"
+        },
+        github: "https://github.com/rishabhsj/"
     }
 };
 
@@ -91,6 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeSkillsAnimation();
     initializeContactForm();
     initializeTheme();
+    initializeProjectModals(); // New: Add listeners for project cards
 });
 
 // Initialize Lucide icons
@@ -192,7 +224,7 @@ function initializeScrollEffects() {
         });
     }, observerOptions);
     
-    // Observe sections for animations
+    // Observe sections for animations (including new testimonials)
     const sections = document.querySelectorAll('section');
     sections.forEach(section => observer.observe(section));
 }
@@ -250,7 +282,7 @@ function handleContactFormSubmission() {
     // Reset form
     document.getElementById('contact-form').reset();
     
-    // In a real application, you would send this data to a server
+    // In a real application, you would send this data to a server (e.g., via fetch to Formspree or Netlify Forms)
     console.log('Contact form data:', data);
 }
 
@@ -307,9 +339,15 @@ function toggleMobileMenu() {
 }
 
 function downloadResume() {
-    // In a real application, this would download an actual resume file
-    showToast('Resume download feature coming soon!');
-    console.log('Resume download requested');
+    // Download the PDF (assuming it's in the root or provide full path)
+    const link = document.createElement('a');
+    link.href = 'Rishabh_Jain_Resume.pdf'; // Update with actual filename/path if needed
+    link.download = 'Rishabh_Jain_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    showToast('Resume downloading...');
+    console.log('Resume download initiated');
 }
 
 function copyToClipboard(text) {
@@ -335,114 +373,14 @@ function copyToClipboard(text) {
     }
 }
 
-// Project filtering
-function filterProjects(category) {
+// Project modal functionality (updated for new projects)
+function initializeProjectModals() {
     const projectCards = document.querySelectorAll('.project-card');
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    
-    // Update active filter button
-    filterBtns.forEach(btn => {
-        btn.classList.remove('active');
-        btn.classList.add('border', 'border-gray-600', 'text-gray-300');
-        btn.classList.remove('bg-blue-600', 'text-white');
+    projectCards.forEach((card, index) => {
+        const keys = Object.keys(projectData); // Get keys from projectData
+        const key = keys[index % keys.length]; // Cycle through keys if needed, or map properly
+        card.addEventListener('click', () => openProjectModal(key));
     });
-    
-    event.target.classList.add('active');
-    event.target.classList.remove('border', 'border-gray-600', 'text-gray-300');
-    event.target.classList.add('bg-blue-600', 'text-white');
-    
-    // Filter projects
-    projectCards.forEach(card => {
-        const cardCategory = card.getAttribute('data-category');
-        if (category === 'all' || cardCategory === category) {
-            card.style.display = 'block';
-            card.classList.add('animate-fade-in-up');
-        } else {
-            card.style.display = 'none';
-        }
-    });
-}
-
-// Project modal functionality
-function openProjectModal(projectKey) {
-    const modal = document.getElementById('project-modal');
-    const modalTitle = document.getElementById('modal-title');
-    const modalContent = document.getElementById('modal-content');
-    
-    const project = projectData[projectKey];
-    if (!project) return;
-    
-    modalTitle.textContent = project.title;
-    
-    modalContent.innerHTML = `
-        <img src="${project.image}" alt="${project.title}" class="w-full rounded-lg shadow-lg mb-6">
-        
-        <div class="mb-6">
-            <h4 class="text-lg font-semibold mb-3">About This Project</h4>
-            <p class="text-gray-300 leading-relaxed">${project.description}</p>
-        </div>
-        
-        <div class="mb-6">
-            <h4 class="text-lg font-semibold mb-3">Key Features</h4>
-            <ul class="space-y-2">
-                ${project.features.map(feature => `
-                    <li class="text-gray-300 flex items-start">
-                        <span class="text-blue-400 mr-2">•</span>
-                        ${feature}
-                    </li>
-                `).join('')}
-            </ul>
-        </div>
-        
-        <div class="mb-6">
-            <h4 class="text-lg font-semibold mb-3">Technologies Used</h4>
-            <div class="flex flex-wrap gap-2 mb-4">
-                ${project.technologies.map(tech => `
-                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">${tech}</span>
-                `).join('')}
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                ${Object.entries(project.techStack).map(([category, tech]) => `
-                    <div>
-                        <strong class="text-white">${category}:</strong>
-                        <p class="text-gray-300 text-sm">${tech}</p>
-                    </div>
-                `).join('')}
-            </div>
-        </div>
-        
-        <div class="flex gap-4 pt-4">
-            <a href="${project.github}" target="_blank" rel="noopener noreferrer" 
-               class="flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-all">
-                <i data-lucide="github" class="h-4 w-4"></i>
-                View Code
-            </a>
-        </div>
-    `;
-    
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-    modal.querySelector('.bg-gray-800').classList.add('modal-enter');
-    
-    // Reinitialize icons for the modal content
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
-}
-
-function closeProjectModal() {
-    const modal = document.getElementById('project-modal');
-    const modalCard = modal.querySelector('.bg-gray-800');
-    
-    modalCard.classList.remove('modal-enter');
-    modalCard.classList.add('modal-leave');
-    
-    setTimeout(() => {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-        modalCard.classList.remove('modal-leave');
-    }, 300);
 }
 
 // Toast notifications
