@@ -1,5 +1,3 @@
-// Portfolio JavaScript functionality
-
 // Global variables
 let isMenuOpen = false;
 let isDarkTheme = true;
@@ -8,19 +6,19 @@ let currentCharIndex = 0;
 let isDeleting = false;
 let activeSection = 'home';
 
-// Typing animation texts (updated from new HTML)
+// Typing animation texts
 const typingTexts = [
     "Data Engineer",
     "MSc Artificial Intelligence & Robotics",
-    "Coding Mentor | Building Scalable Products"
+    "Coding Enthusiast | Building Scalable Pipelines"
 ];
 
-// Project data for modals (updated with new projects from HTML)
+// Project data for modals (kept as-is, even if modal is not used right now)
 const projectData = {
     user_auth: {
         title: "User Authentication using NLP & ML",
         image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-        description: "Built biometric authentication system using facial and speech recognition with Python, TensorFlow, and OpenCV. Processed 1+ million audio and image records.",
+        description: "Built a biometric authentication system using facial and speech recognition with Python, TensorFlow, and OpenCV. Processed 1+ million audio and image records.",
         features: [
             "Facial recognition using OpenCV",
             "Speech recognition with NLP",
@@ -75,7 +73,7 @@ const projectData = {
     },
     home_automation: {
         title: "Home Automation and Security System",
-        image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400", // Placeholder, as URL invalid
+        image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
         description: "College-sponsored project on home automation system using IOT for controlling the home appliances and various devices using the internet and cloud to advance security in the home.",
         features: [
             "IOT-based appliance control",
@@ -94,7 +92,7 @@ const projectData = {
     },
     training_app: {
         title: "Training & Placement App",
-        image: "https://images.unsplash.com/photo-1556075798-4825dfaaf498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400", // Placeholder, as URL invalid
+        image: "https://images.unsplash.com/photo-1556075798-4825dfaaf498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
         description: "Android app for Training and Placement Cell of PCET’s PCCOER involving placement activities and student interactions.",
         features: [
             "Placement activities management",
@@ -113,8 +111,10 @@ const projectData = {
     }
 };
 
-// Initialize everything when DOM is loaded
+// Main initialization - runs when DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
+    console.log("Portfolio loaded successfully!");
+
     initializeLucideIcons();
     initializeTypingAnimation();
     initializeNavigation();
@@ -122,17 +122,23 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeSkillsAnimation();
     initializeContactForm();
     initializeTheme();
-    initializeProjectModals(); // New: Add listeners for project cards
+    initializeProjectModals(); // Optional - remove if you don't use modals
+
+    // Initialize Swiper Carousels (this is the critical part!)
+    initializeSwipers();
 });
 
-// Initialize Lucide icons
+// 1. Lucide Icons
 function initializeLucideIcons() {
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
+        console.log("Lucide icons initialized");
+    } else {
+        console.warn("Lucide library not loaded");
     }
 }
 
-// Typing animation
+// 2. Typing Animation
 function initializeTypingAnimation() {
     const typingElement = document.getElementById('typing-text');
     if (!typingElement) return;
@@ -143,7 +149,6 @@ function initializeTypingAnimation() {
         if (isDeleting) {
             typingElement.textContent = currentText.substring(0, currentCharIndex - 1);
             currentCharIndex--;
-            
             if (currentCharIndex === 0) {
                 isDeleting = false;
                 currentTypingIndex = (currentTypingIndex + 1) % typingTexts.length;
@@ -151,7 +156,6 @@ function initializeTypingAnimation() {
         } else {
             typingElement.textContent = currentText.substring(0, currentCharIndex + 1);
             currentCharIndex++;
-            
             if (currentCharIndex === currentText.length) {
                 setTimeout(() => isDeleting = true, 2000);
             }
@@ -161,16 +165,15 @@ function initializeTypingAnimation() {
     }
     
     typeText();
+    console.log("Typing animation started");
 }
 
-// Navigation functionality
+// 3. Navigation (scroll spy + mobile menu)
 function initializeNavigation() {
     const navigation = document.getElementById('navigation');
     
-    // Handle scroll events for navigation
     window.addEventListener('scroll', function() {
         const scrolled = window.scrollY > 100;
-        
         if (scrolled) {
             navigation.classList.add('nav-scrolled');
             navigation.classList.remove('bg-transparent');
@@ -178,12 +181,13 @@ function initializeNavigation() {
             navigation.classList.remove('nav-scrolled');
             navigation.classList.add('bg-transparent');
         }
-        
         updateActiveSection();
     });
+
+    console.log("Navigation scroll effects initialized");
 }
 
-// Update active section in navigation
+// Update active nav item
 function updateActiveSection() {
     const sections = ['home', 'about', 'experience', 'skills', 'projects', 'contact'];
     const navItems = document.querySelectorAll('.nav-item');
@@ -195,7 +199,6 @@ function updateActiveSection() {
             if (rect.top <= 100 && rect.bottom >= 100) {
                 if (activeSection !== section) {
                     activeSection = section;
-                    
                     navItems.forEach(item => {
                         item.classList.remove('active');
                         if (item.getAttribute('data-section') === section) {
@@ -209,84 +212,60 @@ function updateActiveSection() {
     }
 }
 
-// Scroll effects and animations
+// 4. Scroll Animations
 function initializeScrollEffects() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-    };
-    
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate-fade-in-up');
             }
         });
-    }, observerOptions);
-    
-    // Observe sections for animations (including new testimonials)
-    const sections = document.querySelectorAll('section');
-    sections.forEach(section => observer.observe(section));
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section').forEach(section => observer.observe(section));
+    console.log("Scroll animations initialized");
 }
 
-// Skills animation
+// 5. Skills Progress Bars
 function initializeSkillsAnimation() {
     const skillsObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 animateSkillBars();
+                skillsObserver.unobserve(entry.target);
             }
         });
     }, { threshold: 0.5 });
-    
+
     const skillsSection = document.getElementById('skills');
-    if (skillsSection) {
-        skillsObserver.observe(skillsSection);
-    }
+    if (skillsSection) skillsObserver.observe(skillsSection);
 }
 
 function animateSkillBars() {
-    const skillItems = document.querySelectorAll('.skill-item');
-    
-    skillItems.forEach((item, index) => {
-        const skillLevel = item.getAttribute('data-skill');
+    document.querySelectorAll('.skill-item').forEach((item, index) => {
+        const skillLevel = item.getAttribute('data-skill') || 90;
         const progressBar = item.querySelector('.skill-progress');
-        
         if (progressBar) {
             setTimeout(() => {
                 progressBar.style.width = `${skillLevel}%`;
-            }, index * 200);
+            }, index * 200 + 300);
         }
     });
 }
 
-// Contact form handling
+// 6. Contact Form
 function initializeContactForm() {
-    const contactForm = document.getElementById('contact-form');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            handleContactFormSubmission();
-        });
-    }
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        showToast("Message sent! I'll get back to you soon.");
+        form.reset();
+    });
 }
 
-function handleContactFormSubmission() {
-    const formData = new FormData(document.getElementById('contact-form'));
-    const data = Object.fromEntries(formData);
-    
-    // Simulate form submission
-    showToast('Message sent successfully! I\'ll get back to you soon.');
-    
-    // Reset form
-    document.getElementById('contact-form').reset();
-    
-    // In a real application, you would send this data to a server (e.g., via fetch to Formspree or Netlify Forms)
-    console.log('Contact form data:', data);
-}
-
-// Theme management
+// 7. Theme Toggle
 function initializeTheme() {
     const savedTheme = localStorage.getItem('portfolio-theme');
     if (savedTheme === 'light') {
@@ -303,184 +282,134 @@ function toggleTheme() {
     
     if (isDarkTheme) {
         body.classList.remove('light');
-        lightIcon.classList.add('hidden');
-        darkIcon.classList.remove('hidden');
+        if (lightIcon) lightIcon.classList.add('hidden');
+        if (darkIcon) darkIcon.classList.remove('hidden');
         localStorage.setItem('portfolio-theme', 'dark');
     } else {
         body.classList.add('light');
-        lightIcon.classList.remove('hidden');
-        darkIcon.classList.add('hidden');
+        if (lightIcon) lightIcon.classList.remove('hidden');
+        if (darkIcon) darkIcon.classList.add('hidden');
         localStorage.setItem('portfolio-theme', 'light');
     }
 }
 
-// Utility functions
-function scrollToSection(sectionId) {
-    const element = document.getElementById(sectionId);
-    if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-        
-        // Close mobile menu if open
-        if (isMenuOpen) {
-            toggleMobileMenu();
-        }
-    }
-}
-
+// 8. Mobile Menu
 function toggleMobileMenu() {
     const mobileMenu = document.getElementById('mobile-menu');
     isMenuOpen = !isMenuOpen;
     
-    if (isMenuOpen) {
-        mobileMenu.classList.remove('hidden');
-    } else {
-        mobileMenu.classList.add('hidden');
+    if (mobileMenu) {
+        if (isMenuOpen) {
+            mobileMenu.classList.remove('hidden');
+        } else {
+            mobileMenu.classList.add('hidden');
+        }
+    }
+}
+
+// 9. Utility Functions
+function scrollToSection(sectionId) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        if (isMenuOpen) toggleMobileMenu();
     }
 }
 
 function downloadResume() {
-    // Download the PDF (assuming it's in the root or provide full path)
     const link = document.createElement('a');
-    link.href = 'Rishabh_Jain_Resume.pdf'; // Update with actual filename/path if needed
+    link.href = 'Rishabh_Jain_Resume.pdf'; // ← Update this path if needed
     link.download = 'Rishabh_Jain_Resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
     showToast('Resume downloading...');
-    console.log('Resume download initiated');
 }
 
-function copyToClipboard(text) {
-    if (navigator.clipboard) {
-        navigator.clipboard.writeText(text).then(() => {
-            showToast(`Copied: ${text}`);
-        }).catch(() => {
-            showToast('Failed to copy to clipboard');
-        });
-    } else {
-        // Fallback for older browsers
-        const textArea = document.createElement('textarea');
-        textArea.value = text;
-        document.body.appendChild(textArea);
-        textArea.select();
-        try {
-            document.execCommand('copy');
-            showToast(`Copied: ${text}`);
-        } catch (err) {
-            showToast('Failed to copy to clipboard');
-        }
-        document.body.removeChild(textArea);
-    }
-}
-
-// Project modal functionality (updated for new projects)
-function initializeProjectModals() {
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach((card, index) => {
-        const keys = Object.keys(projectData); // Get keys from projectData
-        const key = keys[index % keys.length]; // Cycle through keys if needed, or map properly
-        card.addEventListener('click', () => openProjectModal(key));
-    });
-}
-
-// Toast notifications
+// 10. Toast Notification
 function showToast(message) {
     const toast = document.getElementById('toast');
     const toastMessage = document.getElementById('toast-message');
     
-    toastMessage.textContent = message;
-    toast.classList.add('toast-show');
-    
-    setTimeout(() => {
-        toast.classList.remove('toast-show');
-    }, 3000);
-}
-
-// Close modal when clicking outside
-document.addEventListener('click', function(e) {
-    const modal = document.getElementById('project-modal');
-    if (e.target === modal) {
-        closeProjectModal();
-    }
-});
-
-// Handle keyboard shortcuts
-document.addEventListener('keydown', function(e) {
-    // Close modal with Escape key
-    if (e.key === 'Escape') {
-        const modal = document.getElementById('project-modal');
-        if (!modal.classList.contains('hidden')) {
-            closeProjectModal();
-        }
+    if (toast && toastMessage) {
+        toastMessage.textContent = message;
+        toast.classList.add('toast-show');
         
-        // Close mobile menu if open
-        if (isMenuOpen) {
-            toggleMobileMenu();
-        }
+        setTimeout(() => {
+            toast.classList.remove('toast-show');
+        }, 3000);
     }
-    
-    // Theme toggle with Ctrl/Cmd + Shift + T
-    if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'T') {
-        e.preventDefault();
-        toggleTheme();
-    }
-});
-
-// Handle window resize
-window.addEventListener('resize', function() {
-    // Close mobile menu on window resize
-    if (isMenuOpen && window.innerWidth >= 768) {
-        toggleMobileMenu();
-    }
-});
-
-// Performance optimization: Throttle scroll events
-function throttle(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
 }
 
-// Initialize Projects Carousel
-const projectsSwiper = new Swiper('.projects-swiper', {
-    // Responsive breakpoints
-    slidesPerView: 1,          // mobile - 1 card
-    spaceBetween: 24,
+// 11. Project Modal (optional - keep if you use it)
+function initializeProjectModals() {
+    // Comment out or remove if you don't have project modal triggers in HTML
+    // const projectCards = document.querySelectorAll('.project-card');
+    // projectCards.forEach((card, index) => {
+    //     const keys = Object.keys(projectData);
+    //     const key = keys[index % keys.length];
+    //     card.addEventListener('click', () => openProjectModal(key));
+    // });
+}
 
-    breakpoints: {
-        640: { slidesPerView: 2, spaceBetween: 32 },   // tablet
-        1024: { slidesPerView: 3, spaceBetween: 40 },  // desktop
-    },
+// 12. Critical: Swiper Carousel Initialization
+function initializeSwipers() {
+    // Projects Carousel
+    const projectsSwiper = new Swiper('.projects-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 24,
+        loop: true,
+        grabCursor: true,
+        speed: 800,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 2,
+                spaceBetween: 32
+            },
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 40
+            }
+        }
+    });
 
-    // Navigation arrows
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
+    console.log("Projects Swiper initialized:", projectsSwiper);
 
-    // Pagination dots
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
+    // Testimonials Carousel (optional - add if you have .testimonials-swiper)
+    const testimonialsSwiper = new Swiper('.testimonials-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 32,
+        loop: true,
+        autoplay: {
+            delay: 6000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        breakpoints: {
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 }
+        }
+    });
 
-    // Nice effects
-    loop: true,                    // infinite loop
-    autoplay: {
-        delay: 5000,               // auto slide every 5 seconds
-        disableOnInteraction: false,
-    },
-    speed: 800,                    // smooth transition
-    grabCursor: true,
-    centeredSlides: false,
+    console.log("Testimonials Swiper initialized:", testimonialsSwiper);
+}
+
+// Global error handler (very useful for debugging)
+window.addEventListener('error', (event) => {
+    console.error('Global error caught:', event.message, event.filename, event.lineno);
 });
-// Apply throttling to scroll-heavy functions
-window.addEventListener('scroll', throttle(function() {
-    updateActiveSection();
-}, 100));
