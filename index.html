@@ -1,4 +1,3 @@
-<!-- index.html (Full Updated Version with Carousel Working) -->
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -31,9 +30,6 @@
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
     <!-- Custom Styles -->
     <link rel="stylesheet" href="styles.css">
@@ -91,11 +87,9 @@
                 <button onclick="scrollToSection('skills')" class="mobile-nav-item block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 w-full text-left">Skills</button>
                 <button onclick="scrollToSection('projects')" class="mobile-nav-item block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 w-full text-left">Projects</button>
                 <button onclick="scrollToSection('contact')" class="mobile-nav-item block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 w-full text-left">Contact</button>
-            </div>
-            <div class="px-2 pb-3">
-                <button onclick="downloadResume()" class="w-full flex items-center justify-center gap-2 px-4 py-2 border border-gray-600 rounded-md text-sm hover:bg-gray-700 transition-colors">
+                <button onclick="downloadResume()" class="flex items-center gap-2 px-3 py-2 mt-4 border border-gray-600 rounded-md hover:bg-gray-700 transition-colors">
                     <i data-lucide="download" class="h-4 w-4"></i>
-                    Resume
+                    Download Resume
                 </button>
             </div>
         </div>
@@ -103,70 +97,136 @@
 
     <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <!-- Background -->
         <div class="absolute inset-0 hero-bg"></div>
-        <div class="text-center px-6 relative z-10">
-            <div class="inline-block mb-6 rounded-full bg-gray-800/50 px-6 py-3 text-sm font-medium text-blue-400 border border-blue-500/20 backdrop-blur-sm">
-                Data Engineer | Databricks Certified
+        <div class="absolute inset-0 bg-center bg-cover opacity-5" style="background-image: url('https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"></div>
+        
+        <div class="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Profile Picture -->
+            <div class="mb-8 animate-fade-in-up">
+                <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-3xl font-bold text-white mb-6 shadow-2xl">
+                    RJ
+                </div>
             </div>
-            <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
-                Building Scalable Data Pipelines
+            
+            <!-- Main Heading -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in-up">
+                Hi, I'm <span class="gradient-text">Rishabh Jain</span>
             </h1>
-            <div class="text-xl md:text-2xl text-gray-300 mb-8 flex items-center justify-center gap-2">
-                <span id="typing-text" class="typing-cursor min-w-[300px] text-left"></span>
+            
+            <!-- Typing Effect -->
+            <div class="text-xl sm:text-2xl lg:text-3xl text-gray-300 mb-8 h-16 flex items-center justify-center animate-fade-in-up">
+                <span id="typing-text" class="font-mono typing-cursor"></span>
             </div>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <button onclick="scrollToSection('projects')" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 rounded-md font-medium transition-all flex items-center justify-center gap-2">
-                    <i data-lucide="code" class="h-5 w-5"></i>
-                    View Projects
+            
+            <!-- Description -->
+            <p class="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto animate-fade-in-up">
+                Data Engineer passionate about building scalable data pipelines and delivering production-grade analytics solutions in London, UK.
+            </p>
+            
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in-up">
+                <button onclick="scrollToSection('projects')" class="group px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-all">
+                    View My Work
+                    <i data-lucide="arrow-down" class="ml-2 h-4 w-4 inline group-hover:translate-y-1 transition-transform"></i>
                 </button>
-                <button onclick="scrollToSection('contact')" class="px-8 py-4 border border-blue-500 hover:bg-blue-500/10 rounded-md font-medium transition-all flex items-center justify-center gap-2">
-                    <i data-lucide="mail" class="h-5 w-5"></i>
-                    Get in Touch
+                <button onclick="scrollToSection('contact')" class="px-6 py-3 border border-gray-600 hover:bg-gray-700 text-white rounded-md font-medium transition-all">
+                    Get In Touch
                 </button>
+            </div>
+            
+            <!-- Social Links -->
+            <div class="flex justify-center space-x-6 animate-fade-in-up">
+                <a href="https://linkedin.com/in/rishabhsj23" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-400 text-2xl transition-colors hover:scale-110 transform">
+                    <i data-lucide="linkedin" class="h-6 w-6"></i>
+                </a>
+                <a href="https://github.com/rishabhsj" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-400 text-2xl transition-colors hover:scale-110 transform">
+                    <i data-lucide="github" class="h-6 w-6"></i>
+                </a>
+                <a href="mailto:rishabh@example.com" class="text-gray-400 hover:text-blue-400 text-2xl transition-colors hover:scale-110 transform">
+                    <i data-lucide="mail" class="h-6 w-6"></i>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section py-20">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">About Me</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div class="relative">
-                    <div class="aspect-square rounded-2xl overflow-hidden shadow-2xl rotate-3">
-                        <img src="https://images.unsplash.com/photo-1507238698919-54def7a8e836?auto=format&fit=crop&q=80" alt="Rishabh Jain - Data Engineer in London" class="w-full h-full object-cover">
-                    </div>
-                    <div class="absolute -bottom-4 -right-4 bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg">
-                        <div class="flex items-center gap-2">
-                            <i data-lucide="map-pin" class="h-4 w-4"></i>
-                            London, UK
+    <section id="about" class="py-20 bg-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">About Me</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Text Content -->
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-semibold text-blue-400">
+                        Data Engineer | Databricks Certified | Cloud & Big Data Specialist
+                    </h3>
+                    
+                    <p class="text-gray-300 leading-relaxed">
+                        I am passionate about building scalable data pipelines and delivering production-grade analytics platforms. 
+                        My expertise includes Databricks, PySpark, SQL, AWS, and modern data engineering solutions.
+                    </p>
+                    
+                    <p class="text-gray-300 leading-relaxed">
+                        I love solving complex data problems, optimizing performance, and collaborating with cross-functional teams to enable data-driven decision making. 
+                        Currently working at STV Group Plc building scalable ETL pipelines processing 15+ million records daily.
+                    </p>
+                    
+                    <!-- Stats Grid -->
+                    <div class="grid grid-cols-2 gap-6 mt-8">
+                        <div class="flex items-center space-x-3">
+                            <i data-lucide="map-pin" class="h-5 w-5 text-blue-400"></i>
+                            <div>
+                                <h4 class="font-semibold">Location</h4>
+                                <p class="text-gray-300">London, UK</p>
+                            </div>
                         </div>
+                        <div class="flex items-center space-x-3">
+                            <i data-lucide="calendar" class="h-5 w-5 text-blue-400"></i>
+                            <div>
+                                <h4 class="font-semibold">Experience</h4>
+                                <p class="text-gray-300">4+ Years</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i data-lucide="graduation-cap" class="h-5 w-5 text-blue-400"></i>
+                            <div>
+                                <h4 class="font-semibold">Education</h4>
+                                <p class="text-gray-300">M.Sc. AI & Robotics</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i data-lucide="users" class="h-5 w-5 text-blue-400"></i>
+                            <div>
+                                <h4 class="font-semibold">Mentored</h4>
+                                <p class="text-gray-300">100+ Students</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i data-lucide="award" class="h-5 w-5 text-blue-400"></i>
+                            <div>
+                                <h4 class="font-semibold">Certification</h4>
+                                <p class="text-gray-300">Databricks Certified</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-6">
+                        <button onclick="downloadResume()" class="group px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-all">
+                            <i data-lucide="download" class="mr-2 h-4 w-4 inline group-hover:translate-y-1 transition-transform"></i>
+                            Download Resume
+                        </button>
                     </div>
                 </div>
-                <div class="space-y-6">
-                    <p class="text-xl text-gray-300 leading-relaxed">
-                        Passionate Data Engineer with 4+ years of experience in building scalable data pipelines and production-grade analytics platforms. Currently at STV Group Plc, where I design and maintain ETL pipelines processing millions of records daily using Databricks, PySpark, and AWS.
-                    </p>
-                    <p class="text-gray-400 leading-relaxed">
-                        MSc in Artificial Intelligence & Robotics from University of Hertfordshire. Databricks Certified Data Engineer Associate. Experienced in optimizing Spark jobs, implementing CI/CD pipelines, and mentoring junior developers.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4 mt-8">
-                        <div class="bg-gray-800 p-4 rounded-lg">
-                            <div class="text-2xl font-bold gradient-text mb-1">4+</div>
-                            <div class="text-sm text-gray-400">Years Experience</div>
-                        </div>
-                        <div class="bg-gray-800 p-4 rounded-lg">
-                            <div class="text-2xl font-bold gradient-text mb-1">30+</div>
-                            <div class="text-sm text-gray-400">Pipelines Built</div>
-                        </div>
-                        <div class="bg-gray-800 p-4 rounded-lg">
-                            <div class="text-2xl font-bold gradient-text mb-1">45%</div>
-                            <div class="text-sm text-gray-400">Cost Reduction</div>
-                        </div>
-                        <div class="bg-gray-800 p-4 rounded-lg">
-                            <div class="text-2xl font-bold gradient-text mb-1">100+</div>
-                            <div class="text-sm text-gray-400">Mentees Guided</div>
-                        </div>
+                
+                <!-- Image -->
+                <div class="relative">
+                    <div class="overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition-shadow card-hover">
+                        <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Modern tech office setup" class="w-full h-auto rounded-lg">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-transparent rounded-lg"></div>
                     </div>
                 </div>
             </div>
@@ -174,76 +234,118 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="section bg-dark py-20">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Professional Experience</h2>
+    <section id="experience" class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Experience</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
+            </div>
+            
             <div class="relative">
-                <div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-gray-700"></div>
+                <!-- Timeline line -->
+                <div class="absolute left-4 lg:left-1/2 transform lg:-translate-x-px top-0 bottom-0 w-0.5 bg-gray-700"></div>
+                
                 <div class="space-y-12">
-                    <!-- Experience 1 -->
-                    <div class="relative flex flex-col md:flex-row md:items-start md:gap-8">
-                        <div class="md:w-1/2 md:text-right pr-8">
-                            <div class="inline-block bg-blue-600/10 border border-blue-500/20 rounded-full px-4 py-1 text-sm mb-4">Feb 2022 – Present</div>
-                            <h3 class="text-2xl font-bold mb-2">Data Engineer</h3>
-                            <h4 class="text-blue-400 mb-4">STV Group Plc • London, UK</h4>
-                        </div>
-                        <div class="md:w-1/2 pl-8">
-                            <ul class="space-y-2">
-                                <li class="flex items-start gap-2">
-                                    <i data-lucide="chevron-right" class="h-5 w-5 text-blue-500 mt-1 flex-shrink-0"></i>
-                                    Designed and maintained 30+ scalable ETL pipelines processing 15+ million records daily, improving efficiency by 40%
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <i data-lucide="chevron-right" class="h-5 w-5 text-blue-500 mt-1 flex-shrink-0"></i>
-                                    Implemented CI/CD pipelines using GitHub Actions, reducing deployment time by 60%
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <i data-lucide="chevron-right" class="h-5 w-5 text-blue-500 mt-1 flex-shrink-0"></i>
-                                    Built data transformation frameworks with Delta Lake and Medallion architecture
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <i data-lucide="chevron-right" class="h-5 w-5 text-blue-500 mt-1 flex-shrink-0"></i>
-                                    Optimized Spark jobs reducing cluster costs by 45%
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Experience 2 -->
-                    <div class="relative flex flex-col md:flex-row-reverse md:items-start md:gap-8 mt-12">
-                        <div class="md:w-1/2 md:text-left pl-8 md:pl-0">
-                            <div class="inline-block bg-blue-600/10 border border-blue-500/20 rounded-full px-4 py-1 text-sm mb-4">Jun 2021 – Jan 2022</div>
-                            <h3 class="text-2xl font-bold mb-2">Associate Developer</h3>
-                            <h4 class="text-blue-400 mb-4">RYoshiga Consultancy Ltd • London, UK</h4>
-                        </div>
-                        <div class="md:w-1/2 pr-8">
-                            <ul class="space-y-2">
-                                <li class="flex items-start gap-2">
-                                    <i data-lucide="chevron-right" class="h-5 w-5 text-blue-500 mt-1 flex-shrink-0"></i>
-                                    Developed data processing applications using Python and JavaScript
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <i data-lucide="chevron-right" class="h-5 w-5 text-blue-500 mt-1 flex-shrink-0"></i>
-                                    Built data visualization dashboards and automated data quality checks
-                                </li>
-                            </ul>
+                    <!-- Experience Item 1 -->
+                    <div class="relative flex items-center lg:justify-start">
+                        <!-- Timeline dot -->
+                        <div class="absolute left-4 lg:left-1/2 transform lg:-translate-x-1/2 w-3 h-3 bg-blue-500 rounded-full border-4 border-gray-900 z-10"></div>
+                        
+                        <div class="ml-12 lg:ml-0 lg:w-1/2 lg:pr-8">
+                            <div class="bg-gray-800 rounded-lg p-6 shadow-lg card-hover">
+                                <div class="flex items-start justify-between mb-3">
+                                    <div>
+                                        <h3 class="text-xl font-semibold text-blue-400 mb-1">Data Engineer</h3>
+                                        <p class="font-medium text-white mb-2">STV Group Plc</p>
+                                    </div>
+                                    <span class="bg-green-900 text-green-300 px-2 py-1 rounded text-sm">Current</span>
+                                </div>
+                                
+                                <div class="flex flex-wrap gap-4 mb-4 text-sm text-gray-400">
+                                    <div class="flex items-center gap-1">
+                                        <i data-lucide="calendar-days" class="h-4 w-4"></i>
+                                        <span>February 2022 - Present</span>
+                                    </div>
+                                    <div class="flex items-center gap-1">
+                                        <i data-lucide="map-pin" class="h-4 w-4"></i>
+                                        <span>London, UK</span>
+                                    </div>
+                                </div>
+                                
+                                <ul class="space-y-2">
+                                    <li class="text-gray-300">Designed and maintained 30+ scalable ETL pipelines processing 15+ million records daily, improving efficiency by 40%</li>
+                                    <li class="text-gray-300">Implemented CI/CD pipelines using GitHub Actions, reducing deployment time by 60%</li>
+                                    <li class="text-gray-300">Built data transformation frameworks with Delta Lake and Medallion architecture, improving reporting accuracy by 35%</li>
+                                    <li class="text-gray-300">Optimized Spark jobs reducing cluster costs by 45% while maintaining pipeline SLAs</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Experience 3 -->
-                    <div class="relative flex flex-col md:flex-row md:items-start md:gap-8 mt-12">
-                        <div class="md:w-1/2 md:text-right pr-8">
-                            <div class="inline-block bg-blue-600/10 border border-blue-500/20 rounded-full px-4 py-1 text-sm mb-4">Jun 2020 – May 2021</div>
-                            <h3 class="text-2xl font-bold mb-2">Content Engineer Intern</h3>
-                            <h4 class="text-blue-400 mb-4">Kelkoogroup • London, UK</h4>
+                    <!-- Experience Item 2 -->
+                    <div class="relative flex items-center lg:justify-end">
+                        <!-- Timeline dot -->
+                        <div class="absolute left-4 lg:left-1/2 transform lg:-translate-x-1/2 w-3 h-3 bg-blue-500 rounded-full border-4 border-gray-900 z-10"></div>
+                        
+                        <div class="ml-12 lg:ml-0 lg:w-1/2 lg:pl-8">
+                            <div class="bg-gray-800 rounded-lg p-6 shadow-lg card-hover">
+                                <div class="flex items-start justify-between mb-3">
+                                    <div>
+                                        <h3 class="text-xl font-semibold text-blue-400 mb-1">Associate Developer</h3>
+                                        <p class="font-medium text-white mb-2">RYoshiga Consultancy Ltd</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex flex-wrap gap-4 mb-4 text-sm text-gray-400">
+                                    <div class="flex items-center gap-1">
+                                        <i data-lucide="calendar-days" class="h-4 w-4"></i>
+                                        <span>June 2021 - January 2022</span>
+                                    </div>
+                                    <div class="flex items-center gap-1">
+                                        <i data-lucide="map-pin" class="h-4 w-4"></i>
+                                        <span>London, UK</span>
+                                    </div>
+                                </div>
+                                
+                                <ul class="space-y-2">
+                                    <li class="text-gray-300">Developed data processing applications using Python and JavaScript for AI and ML analytics pipelines</li>
+                                    <li class="text-gray-300">Built data visualization dashboards and automated data quality checks across 5+ client projects</li>
+                                    <li class="text-gray-300">Collaborated with clients to deliver data-driven solutions aligned with business objectives</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="md:w-1/2 pl-8">
-                            <ul class="space-y-2">
-                                <li class="flex items-start gap-2">
-                                    <i data-lucide="chevron-right" class="h-5 w-5 text-blue-500 mt-1 flex-shrink-0"></i>
-                                    Developed Python and XML automation scripts processing 10,000+ merchant records daily
-                                </li>
-                            </ul>
+                    </div>
+
+                    <!-- Experience Item 3 -->
+                    <div class="relative flex items-center lg:justify-start">
+                        <!-- Timeline dot -->
+                        <div class="absolute left-4 lg:left-1/2 transform lg:-translate-x-1/2 w-3 h-3 bg-blue-500 rounded-full border-4 border-gray-900 z-10"></div>
+                        
+                        <div class="ml-12 lg:ml-0 lg:w-1/2 lg:pr-8">
+                            <div class="bg-gray-800 rounded-lg p-6 shadow-lg card-hover">
+                                <div class="flex items-start justify-between mb-3">
+                                    <div>
+                                        <h3 class="text-xl font-semibold text-blue-400 mb-1">Content Engineer Intern</h3>
+                                        <p class="font-medium text-white mb-2">Kelkoogroup</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex flex-wrap gap-4 mb-4 text-sm text-gray-400">
+                                    <div class="flex items-center gap-1">
+                                        <i data-lucide="calendar-days" class="h-4 w-4"></i>
+                                        <span>June 2020 - May 2021</span>
+                                    </div>
+                                    <div class="flex items-center gap-1">
+                                        <i data-lucide="map-pin" class="h-4 w-4"></i>
+                                        <span>London, UK</span>
+                                    </div>
+                                </div>
+                                
+                                <ul class="space-y-2">
+                                    <li class="text-gray-300">Developed Python and XML automation scripts processing 10,000+ merchant records daily</li>
+                                    <li class="text-gray-300">Supported large-scale Google Shopping product listing ads and sales tracking data pipelines</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -252,104 +354,120 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="section py-20">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Technical Expertise</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
-                    <h3 class="text-2xl font-bold mb-6 text-blue-400">Data Engineering</h3>
+    <section id="skills" class="py-20 bg-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Skills & Technologies</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Data Engineering Skills -->
+                <div class="bg-gray-900 rounded-lg p-6 shadow-lg card-hover">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i data-lucide="code" class="h-5 w-5 text-blue-400"></i>
+                        <h3 class="text-xl font-semibold">Data Engineering</h3>
+                    </div>
                     <div class="space-y-4">
                         <div class="skill-item" data-skill="95">
-                            <div class="flex justify-between mb-1">
-                                <span>Databricks & PySpark</span>
-                                <span>95%</span>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">Databricks & PySpark</span>
+                                <span class="text-sm text-gray-400">95%</span>
                             </div>
-                            <div class="bg-gray-700 h-2 rounded-full">
-                                <div class="skill-progress bg-blue-600 h-full rounded-full" style="width: 0%"></div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="skill-progress h-2 rounded-full bg-blue-500" style="width: 0%"></div>
                             </div>
                         </div>
                         <div class="skill-item" data-skill="90">
-                            <div class="flex justify-between mb-1">
-                                <span>SQL & Data Modeling</span>
-                                <span>90%</span>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">SQL & Data Modeling</span>
+                                <span class="text-sm text-gray-400">90%</span>
                             </div>
-                            <div class="bg-gray-700 h-2 rounded-full">
-                                <div class="skill-progress bg-blue-600 h-full rounded-full" style="width: 0%"></div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="skill-progress h-2 rounded-full bg-blue-500" style="width: 0%"></div>
                             </div>
                         </div>
-                        <div class="skill-item" data-skill="92">
-                            <div class="flex justify-between mb-1">
-                                <span>ETL/ELT Pipelines</span>
-                                <span>92%</span>
+                        <div class="skill-item" data-skill="85">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">ETL/ELT Pipelines</span>
+                                <span class="text-sm text-gray-400">92%</span>
                             </div>
-                            <div class="bg-gray-700 h-2 rounded-full">
-                                <div class="skill-progress bg-blue-600 h-full rounded-full" style="width: 0%"></div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="skill-progress h-2 rounded-full bg-blue-500" style="width: 0%"></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
-                    <h3 class="text-2xl font-bold mb-6 text-blue-400">Cloud & DevOps</h3>
+                <!-- Cloud & DevOps Skills -->
+                <div class="bg-gray-900 rounded-lg p-6 shadow-lg card-hover">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i data-lucide="server" class="h-5 w-5 text-emerald-400"></i>
+                        <h3 class="text-xl font-semibold">Cloud & DevOps</h3>
+                    </div>
                     <div class="space-y-4">
-                        <div class="skill-item" data-skill="85">
-                            <div class="flex justify-between mb-1">
-                                <span>AWS (S3, EC2, Lambda)</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="bg-gray-700 h-2 rounded-full">
-                                <div class="skill-progress bg-purple-600 h-full rounded-full" style="width: 0%"></div>
-                            </div>
-                        </div>
                         <div class="skill-item" data-skill="90">
-                            <div class="flex justify-between mb-1">
-                                <span>CI/CD & GitHub Actions</span>
-                                <span>90%</span>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">AWS (S3, EC2, Lambda)</span>
+                                <span class="text-sm text-gray-400">85%</span>
                             </div>
-                            <div class="bg-gray-700 h-2 rounded-full">
-                                <div class="skill-progress bg-purple-600 h-full rounded-full" style="width: 0%"></div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="skill-progress h-2 rounded-full bg-emerald-500" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="88">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">CI/CD & GitHub Actions</span>
+                                <span class="text-sm text-gray-400">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="skill-progress h-2 rounded-full bg-emerald-500" style="width: 0%"></div>
                             </div>
                         </div>
                         <div class="skill-item" data-skill="85">
-                            <div class="flex justify-between mb-1">
-                                <span>Docker & Linux</span>
-                                <span>85%</span>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">Docker & Linux</span>
+                                <span class="text-sm text-gray-400">85%</span>
                             </div>
-                            <div class="bg-gray-700 h-2 rounded-full">
-                                <div class="skill-progress bg-purple-600 h-full rounded-full" style="width: 0%"></div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="skill-progress h-2 rounded-full bg-emerald-500" style="width: 0%"></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
-                    <h3 class="text-2xl font-bold mb-6 text-blue-400">Data Tools</h3>
+                <!-- Data Tools Skills -->
+                <div class="bg-gray-900 rounded-lg p-6 shadow-lg card-hover">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i data-lucide="settings" class="h-5 w-5 text-purple-400"></i>
+                        <h3 class="text-xl font-semibold">Data Tools</h3>
+                    </div>
                     <div class="space-y-4">
-                        <div class="skill-item" data-skill="90">
-                            <div class="flex justify-between mb-1">
-                                <span>Tableau & Power BI</span>
-                                <span>90%</span>
+                        <div class="skill-item" data-skill="95">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">Tableau & Power BI</span>
+                                <span class="text-sm text-gray-400">90%</span>
                             </div>
-                            <div class="bg-gray-700 h-2 rounded-full">
-                                <div class="skill-progress bg-indigo-600 h-full rounded-full" style="width: 0%"></div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="skill-progress h-2 rounded-full bg-purple-500" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="90">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">Delta Lake & Medallion</span>
+                                <span class="text-sm text-gray-400">92%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="skill-progress h-2 rounded-full bg-purple-500" style="width: 0%"></div>
                             </div>
                         </div>
                         <div class="skill-item" data-skill="92">
-                            <div class="flex justify-between mb-1">
-                                <span>Delta Lake & Medallion</span>
-                                <span>92%</span>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">Python (Pandas, NumPy)</span>
+                                <span class="text-sm text-gray-400">90%</span>
                             </div>
-                            <div class="bg-gray-700 h-2 rounded-full">
-                                <div class="skill-progress bg-indigo-600 h-full rounded-full" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill="90">
-                            <div class="flex justify-between mb-1">
-                                <span>Python (Pandas, NumPy)</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="bg-gray-700 h-2 rounded-full">
-                                <div class="skill-progress bg-indigo-600 h-full rounded-full" style="width: 0%"></div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="skill-progress h-2 rounded-full bg-purple-500" style="width: 0%"></div>
                             </div>
                         </div>
                     </div>
@@ -581,7 +699,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section py-20 bg-dark">
+    <section id="contact" class="py-20">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl sm:text-4xl font-bold mb-4">Get In Touch</h2>
@@ -700,10 +818,39 @@
         </div>
     </footer>
 
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Project Modal -->
+    <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4">
+        <div class="bg-gray-800 rounded-lg max-w-4xl max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-6">
+                    <h2 id="modal-title" class="text-2xl font-bold text-blue-400"></h2>
+                    <button onclick="closeProjectModal()" class="text-gray-400 hover:text-white">
+                        <i data-lucide="x" class="h-6 w-6"></i>
+                    </button>
+                </div>
+                
+                <div id="modal-content" class="space-y-6">
+                    <!-- Content will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-4 right-4 bg-gray-800 text-white p-4 rounded-lg shadow-lg transform translate-y-full opacity-0 transition-all duration-300 z-50">
+        <div class="flex items-center">
+            <i data-lucide="check-circle" class="h-5 w-5 text-green-400 mr-2"></i>
+            <span id="toast-message"></span>
+        </div>
+    </div>
 
     <!-- Custom JavaScript -->
     <script src="script.js"></script>
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </body>
 </html>
