@@ -1,3 +1,4 @@
+<!-- index.html (Full Updated Version with Carousel Working) -->
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -30,6 +31,9 @@
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
     <!-- Custom Styles -->
     <link rel="stylesheet" href="styles.css">
@@ -87,9 +91,11 @@
                 <button onclick="scrollToSection('skills')" class="mobile-nav-item block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 w-full text-left">Skills</button>
                 <button onclick="scrollToSection('projects')" class="mobile-nav-item block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 w-full text-left">Projects</button>
                 <button onclick="scrollToSection('contact')" class="mobile-nav-item block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 w-full text-left">Contact</button>
-                <button onclick="downloadResume()" class="flex items-center gap-2 px-3 py-2 mt-4 border border-gray-600 rounded-md hover:bg-gray-700 transition-colors">
+            </div>
+            <div class="px-2 pb-3">
+                <button onclick="downloadResume()" class="w-full flex items-center justify-center gap-2 px-4 py-2 border border-gray-600 rounded-md text-sm hover:bg-gray-700 transition-colors">
                     <i data-lucide="download" class="h-4 w-4"></i>
-                    Download Resume
+                    Resume
                 </button>
             </div>
         </div>
@@ -97,136 +103,70 @@
 
     <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <!-- Background -->
         <div class="absolute inset-0 hero-bg"></div>
-        <div class="absolute inset-0 bg-center bg-cover opacity-5" style="background-image: url('https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"></div>
-        
-        <div class="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Profile Picture -->
-            <div class="mb-8 animate-fade-in-up">
-                <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-3xl font-bold text-white mb-6 shadow-2xl">
-                    RJ
-                </div>
+        <div class="text-center px-6 relative z-10">
+            <div class="inline-block mb-6 rounded-full bg-gray-800/50 px-6 py-3 text-sm font-medium text-blue-400 border border-blue-500/20 backdrop-blur-sm">
+                Data Engineer | Databricks Certified
             </div>
-            
-            <!-- Main Heading -->
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in-up">
-                Hi, I'm <span class="gradient-text">Rishabh Jain</span>
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+                Building Scalable Data Pipelines
             </h1>
-            
-            <!-- Typing Effect -->
-            <div class="text-xl sm:text-2xl lg:text-3xl text-gray-300 mb-8 h-16 flex items-center justify-center animate-fade-in-up">
-                <span id="typing-text" class="font-mono typing-cursor"></span>
+            <div class="text-xl md:text-2xl text-gray-300 mb-8 flex items-center justify-center gap-2">
+                <span id="typing-text" class="typing-cursor min-w-[300px] text-left"></span>
             </div>
-            
-            <!-- Description -->
-            <p class="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto animate-fade-in-up">
-                Data Engineer passionate about building scalable data pipelines and delivering production-grade analytics solutions in London, UK.
-            </p>
-            
-            <!-- CTA Buttons -->
-            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in-up">
-                <button onclick="scrollToSection('projects')" class="group px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-all">
-                    View My Work
-                    <i data-lucide="arrow-down" class="ml-2 h-4 w-4 inline group-hover:translate-y-1 transition-transform"></i>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button onclick="scrollToSection('projects')" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 rounded-md font-medium transition-all flex items-center justify-center gap-2">
+                    <i data-lucide="code" class="h-5 w-5"></i>
+                    View Projects
                 </button>
-                <button onclick="scrollToSection('contact')" class="px-6 py-3 border border-gray-600 hover:bg-gray-700 text-white rounded-md font-medium transition-all">
-                    Get In Touch
+                <button onclick="scrollToSection('contact')" class="px-8 py-4 border border-blue-500 hover:bg-blue-500/10 rounded-md font-medium transition-all flex items-center justify-center gap-2">
+                    <i data-lucide="mail" class="h-5 w-5"></i>
+                    Get in Touch
                 </button>
-            </div>
-            
-            <!-- Social Links -->
-            <div class="flex justify-center space-x-6 animate-fade-in-up">
-                <a href="https://linkedin.com/in/rishabhsj23" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-400 text-2xl transition-colors hover:scale-110 transform">
-                    <i data-lucide="linkedin" class="h-6 w-6"></i>
-                </a>
-                <a href="https://github.com/rishabhsj" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-400 text-2xl transition-colors hover:scale-110 transform">
-                    <i data-lucide="github" class="h-6 w-6"></i>
-                </a>
-                <a href="mailto:rishabh@example.com" class="text-gray-400 hover:text-blue-400 text-2xl transition-colors hover:scale-110 transform">
-                    <i data-lucide="mail" class="h-6 w-6"></i>
-                </a>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-gray-800">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold mb-4">About Me</h2>
-                <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <!-- Text Content -->
-                <div class="space-y-6">
-                    <h3 class="text-2xl font-semibold text-blue-400">
-                        Data Engineer | Databricks Certified | Cloud & Big Data Specialist
-                    </h3>
-                    
-                    <p class="text-gray-300 leading-relaxed">
-                        I am passionate about building scalable data pipelines and delivering production-grade analytics platforms. 
-                        My expertise includes Databricks, PySpark, SQL, AWS, and modern data engineering solutions.
-                    </p>
-                    
-                    <p class="text-gray-300 leading-relaxed">
-                        I love solving complex data problems, optimizing performance, and collaborating with cross-functional teams to enable data-driven decision making. 
-                        Currently working at STV Group Plc building scalable ETL pipelines processing 15+ million records daily.
-                    </p>
-                    
-                    <!-- Stats Grid -->
-                    <div class="grid grid-cols-2 gap-6 mt-8">
-                        <div class="flex items-center space-x-3">
-                            <i data-lucide="map-pin" class="h-5 w-5 text-blue-400"></i>
-                            <div>
-                                <h4 class="font-semibold">Location</h4>
-                                <p class="text-gray-300">London, UK</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <i data-lucide="calendar" class="h-5 w-5 text-blue-400"></i>
-                            <div>
-                                <h4 class="font-semibold">Experience</h4>
-                                <p class="text-gray-300">4+ Years</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <i data-lucide="graduation-cap" class="h-5 w-5 text-blue-400"></i>
-                            <div>
-                                <h4 class="font-semibold">Education</h4>
-                                <p class="text-gray-300">M.Sc. AI & Robotics</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <i data-lucide="users" class="h-5 w-5 text-blue-400"></i>
-                            <div>
-                                <h4 class="font-semibold">Mentored</h4>
-                                <p class="text-gray-300">100+ Students</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <i data-lucide="award" class="h-5 w-5 text-blue-400"></i>
-                            <div>
-                                <h4 class="font-semibold">Certification</h4>
-                                <p class="text-gray-300">Databricks Certified</p>
-                            </div>
-                        </div>
+    <section id="about" class="section py-20">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">About Me</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <div class="aspect-square rounded-2xl overflow-hidden shadow-2xl rotate-3">
+                        <img src="https://images.unsplash.com/photo-1507238698919-54def7a8e836?auto=format&fit=crop&q=80" alt="Rishabh Jain - Data Engineer in London" class="w-full h-full object-cover">
                     </div>
-                    
-                    <div class="pt-6">
-                        <button onclick="downloadResume()" class="group px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-all">
-                            <i data-lucide="download" class="mr-2 h-4 w-4 inline group-hover:translate-y-1 transition-transform"></i>
-                            Download Resume
-                        </button>
+                    <div class="absolute -bottom-4 -right-4 bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="map-pin" class="h-4 w-4"></i>
+                            London, UK
+                        </div>
                     </div>
                 </div>
-                
-                <!-- Image -->
-                <div class="relative">
-                    <div class="overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition-shadow card-hover">
-                        <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Modern tech office setup" class="w-full h-auto rounded-lg">
-                        <div class="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-transparent rounded-lg"></div>
+                <div class="space-y-6">
+                    <p class="text-xl text-gray-300 leading-relaxed">
+                        Passionate Data Engineer with 4+ years of experience in building scalable data pipelines and production-grade analytics platforms. Currently at STV Group Plc, where I design and maintain ETL pipelines processing millions of records daily using Databricks, PySpark, and AWS.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed">
+                        MSc in Artificial Intelligence & Robotics from University of Hertfordshire. Databricks Certified Data Engineer Associate. Experienced in optimizing Spark jobs, implementing CI/CD pipelines, and mentoring junior developers.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mt-8">
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <div class="text-2xl font-bold gradient-text mb-1">4+</div>
+                            <div class="text-sm text-gray-400">Years Experience</div>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <div class="text-2xl font-bold gradient-text mb-1">30+</div>
+                            <div class="text-sm text-gray-400">Pipelines Built</div>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <div class="text-2xl font-bold gradient-text mb-1">45%</div>
+                            <div class="text-sm text-gray-400">Cost Reduction</div>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <div class="text-2xl font-bold gradient-text mb-1">100+</div>
+                            <div class="text-sm text-gray-400">Mentees Guided</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -234,118 +174,76 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-20">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Experience</h2>
-                <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
-            </div>
-            
+    <section id="experience" class="section bg-dark py-20">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Professional Experience</h2>
             <div class="relative">
-                <!-- Timeline line -->
-                <div class="absolute left-4 lg:left-1/2 transform lg:-translate-x-px top-0 bottom-0 w-0.5 bg-gray-700"></div>
-                
+                <div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-gray-700"></div>
                 <div class="space-y-12">
-                    <!-- Experience Item 1 -->
-                    <div class="relative flex items-center lg:justify-start">
-                        <!-- Timeline dot -->
-                        <div class="absolute left-4 lg:left-1/2 transform lg:-translate-x-1/2 w-3 h-3 bg-blue-500 rounded-full border-4 border-gray-900 z-10"></div>
-                        
-                        <div class="ml-12 lg:ml-0 lg:w-1/2 lg:pr-8">
-                            <div class="bg-gray-800 rounded-lg p-6 shadow-lg card-hover">
-                                <div class="flex items-start justify-between mb-3">
-                                    <div>
-                                        <h3 class="text-xl font-semibold text-blue-400 mb-1">Data Engineer</h3>
-                                        <p class="font-medium text-white mb-2">STV Group Plc</p>
-                                    </div>
-                                    <span class="bg-green-900 text-green-300 px-2 py-1 rounded text-sm">Current</span>
-                                </div>
-                                
-                                <div class="flex flex-wrap gap-4 mb-4 text-sm text-gray-400">
-                                    <div class="flex items-center gap-1">
-                                        <i data-lucide="calendar-days" class="h-4 w-4"></i>
-                                        <span>February 2022 - Present</span>
-                                    </div>
-                                    <div class="flex items-center gap-1">
-                                        <i data-lucide="map-pin" class="h-4 w-4"></i>
-                                        <span>London, UK</span>
-                                    </div>
-                                </div>
-                                
-                                <ul class="space-y-2">
-                                    <li class="text-gray-300">Designed and maintained 30+ scalable ETL pipelines processing 15+ million records daily, improving efficiency by 40%</li>
-                                    <li class="text-gray-300">Implemented CI/CD pipelines using GitHub Actions, reducing deployment time by 60%</li>
-                                    <li class="text-gray-300">Built data transformation frameworks with Delta Lake and Medallion architecture, improving reporting accuracy by 35%</li>
-                                    <li class="text-gray-300">Optimized Spark jobs reducing cluster costs by 45% while maintaining pipeline SLAs</li>
-                                </ul>
-                            </div>
+                    <!-- Experience 1 -->
+                    <div class="relative flex flex-col md:flex-row md:items-start md:gap-8">
+                        <div class="md:w-1/2 md:text-right pr-8">
+                            <div class="inline-block bg-blue-600/10 border border-blue-500/20 rounded-full px-4 py-1 text-sm mb-4">Feb 2022 – Present</div>
+                            <h3 class="text-2xl font-bold mb-2">Data Engineer</h3>
+                            <h4 class="text-blue-400 mb-4">STV Group Plc • London, UK</h4>
+                        </div>
+                        <div class="md:w-1/2 pl-8">
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="chevron-right" class="h-5 w-5 text-blue-500 mt-1 flex-shrink-0"></i>
+                                    Designed and maintained 30+ scalable ETL pipelines processing 15+ million records daily, improving efficiency by 40%
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="chevron-right" class="h-5 w-5 text-blue-500 mt-1 flex-shrink-0"></i>
+                                    Implemented CI/CD pipelines using GitHub Actions, reducing deployment time by 60%
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="chevron-right" class="h-5 w-5 text-blue-500 mt-1 flex-shrink-0"></i>
+                                    Built data transformation frameworks with Delta Lake and Medallion architecture
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="chevron-right" class="h-5 w-5 text-blue-500 mt-1 flex-shrink-0"></i>
+                                    Optimized Spark jobs reducing cluster costs by 45%
+                                </li>
+                            </ul>
                         </div>
                     </div>
 
-                    <!-- Experience Item 2 -->
-                    <div class="relative flex items-center lg:justify-end">
-                        <!-- Timeline dot -->
-                        <div class="absolute left-4 lg:left-1/2 transform lg:-translate-x-1/2 w-3 h-3 bg-blue-500 rounded-full border-4 border-gray-900 z-10"></div>
-                        
-                        <div class="ml-12 lg:ml-0 lg:w-1/2 lg:pl-8">
-                            <div class="bg-gray-800 rounded-lg p-6 shadow-lg card-hover">
-                                <div class="flex items-start justify-between mb-3">
-                                    <div>
-                                        <h3 class="text-xl font-semibold text-blue-400 mb-1">Associate Developer</h3>
-                                        <p class="font-medium text-white mb-2">RYoshiga Consultancy Ltd</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="flex flex-wrap gap-4 mb-4 text-sm text-gray-400">
-                                    <div class="flex items-center gap-1">
-                                        <i data-lucide="calendar-days" class="h-4 w-4"></i>
-                                        <span>June 2021 - January 2022</span>
-                                    </div>
-                                    <div class="flex items-center gap-1">
-                                        <i data-lucide="map-pin" class="h-4 w-4"></i>
-                                        <span>London, UK</span>
-                                    </div>
-                                </div>
-                                
-                                <ul class="space-y-2">
-                                    <li class="text-gray-300">Developed data processing applications using Python and JavaScript for AI and ML analytics pipelines</li>
-                                    <li class="text-gray-300">Built data visualization dashboards and automated data quality checks across 5+ client projects</li>
-                                    <li class="text-gray-300">Collaborated with clients to deliver data-driven solutions aligned with business objectives</li>
-                                </ul>
-                            </div>
+                    <!-- Experience 2 -->
+                    <div class="relative flex flex-col md:flex-row-reverse md:items-start md:gap-8 mt-12">
+                        <div class="md:w-1/2 md:text-left pl-8 md:pl-0">
+                            <div class="inline-block bg-blue-600/10 border border-blue-500/20 rounded-full px-4 py-1 text-sm mb-4">Jun 2021 – Jan 2022</div>
+                            <h3 class="text-2xl font-bold mb-2">Associate Developer</h3>
+                            <h4 class="text-blue-400 mb-4">RYoshiga Consultancy Ltd • London, UK</h4>
+                        </div>
+                        <div class="md:w-1/2 pr-8">
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="chevron-right" class="h-5 w-5 text-blue-500 mt-1 flex-shrink-0"></i>
+                                    Developed data processing applications using Python and JavaScript
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="chevron-right" class="h-5 w-5 text-blue-500 mt-1 flex-shrink-0"></i>
+                                    Built data visualization dashboards and automated data quality checks
+                                </li>
+                            </ul>
                         </div>
                     </div>
 
-                    <!-- Experience Item 3 -->
-                    <div class="relative flex items-center lg:justify-start">
-                        <!-- Timeline dot -->
-                        <div class="absolute left-4 lg:left-1/2 transform lg:-translate-x-1/2 w-3 h-3 bg-blue-500 rounded-full border-4 border-gray-900 z-10"></div>
-                        
-                        <div class="ml-12 lg:ml-0 lg:w-1/2 lg:pr-8">
-                            <div class="bg-gray-800 rounded-lg p-6 shadow-lg card-hover">
-                                <div class="flex items-start justify-between mb-3">
-                                    <div>
-                                        <h3 class="text-xl font-semibold text-blue-400 mb-1">Content Engineer Intern</h3>
-                                        <p class="font-medium text-white mb-2">Kelkoogroup</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="flex flex-wrap gap-4 mb-4 text-sm text-gray-400">
-                                    <div class="flex items-center gap-1">
-                                        <i data-lucide="calendar-days" class="h-4 w-4"></i>
-                                        <span>June 2020 - May 2021</span>
-                                    </div>
-                                    <div class="flex items-center gap-1">
-                                        <i data-lucide="map-pin" class="h-4 w-4"></i>
-                                        <span>London, UK</span>
-                                    </div>
-                                </div>
-                                
-                                <ul class="space-y-2">
-                                    <li class="text-gray-300">Developed Python and XML automation scripts processing 10,000+ merchant records daily</li>
-                                    <li class="text-gray-300">Supported large-scale Google Shopping product listing ads and sales tracking data pipelines</li>
-                                </ul>
-                            </div>
+                    <!-- Experience 3 -->
+                    <div class="relative flex flex-col md:flex-row md:items-start md:gap-8 mt-12">
+                        <div class="md:w-1/2 md:text-right pr-8">
+                            <div class="inline-block bg-blue-600/10 border border-blue-500/20 rounded-full px-4 py-1 text-sm mb-4">Jun 2020 – May 2021</div>
+                            <h3 class="text-2xl font-bold mb-2">Content Engineer Intern</h3>
+                            <h4 class="text-blue-400 mb-4">Kelkoogroup • London, UK</h4>
+                        </div>
+                        <div class="md:w-1/2 pl-8">
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="chevron-right" class="h-5 w-5 text-blue-500 mt-1 flex-shrink-0"></i>
+                                    Developed Python and XML automation scripts processing 10,000+ merchant records daily
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -354,120 +252,104 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-gray-800">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Skills & Technologies</h2>
-                <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Data Engineering Skills -->
-                <div class="bg-gray-900 rounded-lg p-6 shadow-lg card-hover">
-                    <div class="flex items-center gap-3 mb-6">
-                        <i data-lucide="code" class="h-5 w-5 text-blue-400"></i>
-                        <h3 class="text-xl font-semibold">Data Engineering</h3>
-                    </div>
+    <section id="skills" class="section py-20">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Technical Expertise</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6 text-blue-400">Data Engineering</h3>
                     <div class="space-y-4">
                         <div class="skill-item" data-skill="95">
-                            <div class="flex justify-between mb-2">
-                                <span class="text-sm font-medium">Databricks & PySpark</span>
-                                <span class="text-sm text-gray-400">95%</span>
+                            <div class="flex justify-between mb-1">
+                                <span>Databricks & PySpark</span>
+                                <span>95%</span>
                             </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2">
-                                <div class="skill-progress h-2 rounded-full bg-blue-500" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill="90">
-                            <div class="flex justify-between mb-2">
-                                <span class="text-sm font-medium">SQL & Data Modeling</span>
-                                <span class="text-sm text-gray-400">90%</span>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2">
-                                <div class="skill-progress h-2 rounded-full bg-blue-500" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill="85">
-                            <div class="flex justify-between mb-2">
-                                <span class="text-sm font-medium">ETL/ELT Pipelines</span>
-                                <span class="text-sm text-gray-400">92%</span>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2">
-                                <div class="skill-progress h-2 rounded-full bg-blue-500" style="width: 0%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Cloud & DevOps Skills -->
-                <div class="bg-gray-900 rounded-lg p-6 shadow-lg card-hover">
-                    <div class="flex items-center gap-3 mb-6">
-                        <i data-lucide="server" class="h-5 w-5 text-emerald-400"></i>
-                        <h3 class="text-xl font-semibold">Cloud & DevOps</h3>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="skill-item" data-skill="90">
-                            <div class="flex justify-between mb-2">
-                                <span class="text-sm font-medium">AWS (S3, EC2, Lambda)</span>
-                                <span class="text-sm text-gray-400">85%</span>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2">
-                                <div class="skill-progress h-2 rounded-full bg-emerald-500" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill="88">
-                            <div class="flex justify-between mb-2">
-                                <span class="text-sm font-medium">CI/CD & GitHub Actions</span>
-                                <span class="text-sm text-gray-400">90%</span>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2">
-                                <div class="skill-progress h-2 rounded-full bg-emerald-500" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill="85">
-                            <div class="flex justify-between mb-2">
-                                <span class="text-sm font-medium">Docker & Linux</span>
-                                <span class="text-sm text-gray-400">85%</span>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2">
-                                <div class="skill-progress h-2 rounded-full bg-emerald-500" style="width: 0%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Data Tools Skills -->
-                <div class="bg-gray-900 rounded-lg p-6 shadow-lg card-hover">
-                    <div class="flex items-center gap-3 mb-6">
-                        <i data-lucide="settings" class="h-5 w-5 text-purple-400"></i>
-                        <h3 class="text-xl font-semibold">Data Tools</h3>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="skill-item" data-skill="95">
-                            <div class="flex justify-between mb-2">
-                                <span class="text-sm font-medium">Tableau & Power BI</span>
-                                <span class="text-sm text-gray-400">90%</span>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2">
-                                <div class="skill-progress h-2 rounded-full bg-purple-500" style="width: 0%"></div>
+                            <div class="bg-gray-700 h-2 rounded-full">
+                                <div class="skill-progress bg-blue-600 h-full rounded-full" style="width: 0%"></div>
                             </div>
                         </div>
                         <div class="skill-item" data-skill="90">
-                            <div class="flex justify-between mb-2">
-                                <span class="text-sm font-medium">Delta Lake & Medallion</span>
-                                <span class="text-sm text-gray-400">92%</span>
+                            <div class="flex justify-between mb-1">
+                                <span>SQL & Data Modeling</span>
+                                <span>90%</span>
                             </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2">
-                                <div class="skill-progress h-2 rounded-full bg-purple-500" style="width: 0%"></div>
+                            <div class="bg-gray-700 h-2 rounded-full">
+                                <div class="skill-progress bg-blue-600 h-full rounded-full" style="width: 0%"></div>
                             </div>
                         </div>
                         <div class="skill-item" data-skill="92">
-                            <div class="flex justify-between mb-2">
-                                <span class="text-sm font-medium">Python (Pandas, NumPy)</span>
-                                <span class="text-sm text-gray-400">90%</span>
+                            <div class="flex justify-between mb-1">
+                                <span>ETL/ELT Pipelines</span>
+                                <span>92%</span>
                             </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2">
-                                <div class="skill-progress h-2 rounded-full bg-purple-500" style="width: 0%"></div>
+                            <div class="bg-gray-700 h-2 rounded-full">
+                                <div class="skill-progress bg-blue-600 h-full rounded-full" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6 text-blue-400">Cloud & DevOps</h3>
+                    <div class="space-y-4">
+                        <div class="skill-item" data-skill="85">
+                            <div class="flex justify-between mb-1">
+                                <span>AWS (S3, EC2, Lambda)</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="bg-gray-700 h-2 rounded-full">
+                                <div class="skill-progress bg-purple-600 h-full rounded-full" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="90">
+                            <div class="flex justify-between mb-1">
+                                <span>CI/CD & GitHub Actions</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="bg-gray-700 h-2 rounded-full">
+                                <div class="skill-progress bg-purple-600 h-full rounded-full" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="85">
+                            <div class="flex justify-between mb-1">
+                                <span>Docker & Linux</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="bg-gray-700 h-2 rounded-full">
+                                <div class="skill-progress bg-purple-600 h-full rounded-full" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6 text-blue-400">Data Tools</h3>
+                    <div class="space-y-4">
+                        <div class="skill-item" data-skill="90">
+                            <div class="flex justify-between mb-1">
+                                <span>Tableau & Power BI</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="bg-gray-700 h-2 rounded-full">
+                                <div class="skill-progress bg-indigo-600 h-full rounded-full" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="92">
+                            <div class="flex justify-between mb-1">
+                                <span>Delta Lake & Medallion</span>
+                                <span>92%</span>
+                            </div>
+                            <div class="bg-gray-700 h-2 rounded-full">
+                                <div class="skill-progress bg-indigo-600 h-full rounded-full" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="90">
+                            <div class="flex justify-between mb-1">
+                                <span>Python (Pandas, NumPy)</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="bg-gray-700 h-2 rounded-full">
+                                <div class="skill-progress bg-indigo-600 h-full rounded-full" style="width: 0%"></div>
                             </div>
                         </div>
                     </div>
@@ -476,313 +358,230 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20">
+    <!-- Projects Carousel Section -->
+    <section id="projects" class="section bg-dark py-20">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Featured Projects</h2>
-                <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
-                <p class="text-gray-300 mt-4">Some of my most impactful work and contributions</p>
-            </div>
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Featured Projects</h2>
             
-            <!-- Project Filters -->
-            <!-- <div class="flex flex-wrap justify-center gap-4 mb-12">
-                <button onclick="filterProjects('all')" class="filter-btn active px-4 py-2 bg-blue-600 text-white rounded-md transition-all">All</button>
-                <button onclick="filterProjects('web')" class="filter-btn px-4 py-2 border border-gray-600 text-gray-300 rounded-md hover:bg-gray-700 transition-all">Web Apps</button>
-                <button onclick="filterProjects('opensource')" class="filter-btn px-4 py-2 border border-gray-600 text-gray-300 rounded-md hover:bg-gray-700 transition-all">Open Source</button>
-                <button onclick="filterProjects('platform')" class="filter-btn px-4 py-2 border border-gray-600 text-gray-300 rounded-md hover:bg-gray-700 transition-all">Platform</button>
-            </div> -->
-
+            <!-- Swiper Container -->
             <div class="swiper projects-swiper">
                 <div class="swiper-wrapper">
-                    <!-- Each project becomes a slide -->
                     <!-- Project 1 -->
                     <div class="swiper-slide">
-                        <div class="project-card bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-105 h-full">
-                            <div class="relative group">
-                                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="ML & NLP" class="w-full h-48 object-cover">
-                                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                </div>
+                        <div class="project-card bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-105 h-full p-6">
+                            <h3 class="text-xl font-bold mb-2">User Authentication using NLP & ML</h3>
+                            <p class="text-gray-400 mb-4">Built biometric authentication system using facial and speech recognition with Python, TensorFlow, and OpenCV. Processed 1+ million audio and image records.</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Python</span>
+                                <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">TensorFlow</span>
+                                <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">OpenCV</span>
+                                <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">+1 more</span>
                             </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-semibold text-blue-400 mb-3">User Authentication using NLP & ML</h3>
-                                <p class="text-gray-300 mb-4">Built biometric authentication system using facial and speech recognition with Python, TensorFlow, and OpenCV. Processed 1+ million audio and image records.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Python</span>
-                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">TensorFlow</span>
-                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">OpenCV</span>
-                                    <span class="bg-gray-600 text-gray-400 px-2 py-1 rounded text-sm">+1 more</span>
-                                </div>
-                                <div class="flex space-x-4">
-                                    <a href="https://github.com/rishabhsj/User_Authentication_Using_Facial-Speech_Recognition" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-400 transition-colors">
-                                        <i data-lucide="github" class="h-4 w-4 mr-1 inline"></i>
-                                        Code
-                                    </a>
-                                </div>
-                            </div>
+                            <a href="https://github.com/rishabhsj/User_Authentication_Using_Facial-Speech_Recognition" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-md text-sm transition-all">
+                                <i data-lucide="github" class="h-4 w-4"></i>
+                                View Code
+                            </a>
                         </div>
                     </div>
 
                     <!-- Project 2 -->
                     <div class="swiper-slide">
-                        <div class="project-card bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-105 h-full">   
-                            <div class="relative group">
-                                <img src="https://images.unsplash.com/photo-1556075798-4825dfaaf498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="IoT & Data" class="w-full h-48 object-cover">
-                                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                </div>
+                        <div class="project-card bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-105 h-full p-6">
+                            <h3 class="text-xl font-bold mb-2">Smart Control System in Automobile</h3>
+                            <p class="text-gray-400 mb-4">Developed real-time data pipeline processing sensor telemetry using Python and Raspberry Pi for automated vehicle controls with sub-second latency.</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Python</span>
+                                <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">IOT</span>
+                                <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Real-time</span>
+                                <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">+2 more</span>
                             </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-semibold text-blue-400 mb-3">Smart Control System in Automobile</h3>
-                                <p class="text-gray-300 mb-4">Developed real-time data pipeline processing sensor telemetry using Python and Raspberry Pi for automated vehicle controls with sub-second latency.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Python</span>
-                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">IOT</span>
-                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Real-time</span>
-                                    <span class="bg-gray-600 text-gray-400 px-2 py-1 rounded text-sm">+2 more</span>
-                                </div>
-                                <div class="flex space-x-4">
-                                    <a href="https://github.com/rishabhsj/Smart-Control-System-in-Automobile" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-400 transition-colors">
-                                        <i data-lucide="github" class="h-4 w-4 mr-1 inline"></i>
-                                        Code
-                                    </a>
-                                </div>
-                            </div>
+                            <a href="https://github.com/rishabhsj/Smart-Control-System-in-Automobile" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-md text-sm transition-all">
+                                <i data-lucide="github" class="h-4 w-4"></i>
+                                View Code
+                            </a>
                         </div>
                     </div>
 
                     <!-- Project 3 -->
                     <div class="swiper-slide">
-                        <div class="project-card bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-105 h-full">
-                            <div class="relative group">
-                                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="Online Examination Portal" class="w-full h-48 object-cover">
-                                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                </div>
+                        <div class="project-card bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-105 h-full p-6">
+                            <h3 class="text-xl font-bold mb-2">Online Examination Portal & College Predictor</h3>
+                            <p class="text-gray-400 mb-4">Designed normalised MySQL schemas and built SQL-based analytics for exam results and college prediction using statistical algorithms.</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">MySQL</span>
+                                <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Postgres</span>
+                                <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Analytics</span>
+                                <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">+1 more</span>
                             </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-semibold text-blue-400 mb-3">Online Examination Portal & College Predictor</h3>
-                                <p class="text-gray-300 mb-4">Designed normalised MySQL schemas and built SQL-based analytics for exam results and college prediction using statistical algorithms.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">MySQL</span>
-                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Postgres</span>
-                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Analytics</span>
-                                    <span class="bg-gray-600 text-gray-400 px-2 py-1 rounded text-sm">+1 more</span>
-                                </div>
-                                <div class="flex space-x-4">
-                                    <a href="https://github.com/rishabhsj/Online-Examination-Portal" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-400 transition-colors">
-                                        <i data-lucide="github" class="h-4 w-4 mr-1 inline"></i>
-                                        Code
-                                    </a>
-                                </div>
-                            </div>
+                            <a href="https://github.com/rishabhsj/Online-Examination-Portal" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-md text-sm transition-all">
+                                <i data-lucide="github" class="h-4 w-4"></i>
+                                View Code
+                            </a>
                         </div>
                     </div>
 
                     <!-- Project 4 -->
                     <div class="swiper-slide">
-                        <div class="project-card bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-105 h-full">
-                            <div class="relative group">
-                                <img src="https://unsplash.com/photos/a-cell-phone-is-connected-to-a-light-switch-We56jns_zLE" alt="Home Automation and Security System" class="w-full h-48 object-cover">
-                                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                </div>
+                        <div class="project-card bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-105 h-full p-6">
+                            <h3 class="text-xl font-bold mb-2">Home Automation and Security System</h3>
+                            <p class="text-gray-400 mb-4">College-sponsored project on home automation system using IOT for controlling the home appliances and various devices using the internet and cloud to advance security in the home.</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">IOT</span>
+                                <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Python</span>
+                                <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Cloud Computing</span>
+                                <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">+1 more</span>
                             </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-semibold text-blue-400 mb-3">Home Automation and Security System</h3>
-                                <p class="text-gray-300 mb-4"> College-sponsored project on home automation system using IOT for controlling the home appliances and various devices using the internet and cloud to advance security in the home.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">IOT</span>
-                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Python</span>
-                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Cloud Computing</span>
-                                    <span class="bg-gray-600 text-gray-400 px-2 py-1 rounded text-sm">+1 more</span>
-                                </div>
-                                <div class="flex space-x-4">
-                                    <a href="https://github.com/rishabhsj/Home-Automation-and-Security-System" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-400 transition-colors">
-                                        <i data-lucide="github" class="h-4 w-4 mr-1 inline"></i>
-                                        Code
-                                    </a>
-                                </div>
-                            </div>
+                            <a href="https://github.com/rishabhsj/Home-Automation-and-Security-System" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-md text-sm transition-all">
+                                <i data-lucide="github" class="h-4 w-4"></i>
+                                View Code
+                            </a>
                         </div>
                     </div>
 
                     <!-- Project 5 -->
                     <div class="swiper-slide">
-                        <div class="project-card bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-105 h-full">
-                            <div class="relative group">
-                                <img src="https://unsplash.com/photos/woman-using-smartphone-ugXAdG6tJgo" alt="Training & Placement App" class="w-full h-48 object-cover">
-                                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                </div>
+                        <div class="project-card bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-105 h-full p-6">
+                            <h3 class="text-xl font-bold mb-2">Training & Placement App</h3>
+                            <p class="text-gray-400 mb-4">Android app for Training and Placement Cell of PCET’s PCCOER involving placement activities and student interactions.</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Android Studio</span>
+                                <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">PHP</span>
+                                <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">MYSQL</span>
+                                <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">+1 more</span>
                             </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-semibold text-blue-400 mb-3">Training & Placement App</h3>
-                                <p class="text-gray-300 mb-4">Android app for Training and Placement Cell of PCET’s PCCOER involving placement activities and student interactions.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Android Studio</span>
-                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">PHP</span>
-                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">MYSQL</span>
-                                    <span class="bg-gray-600 text-gray-400 px-2 py-1 rounded text-sm">+1 more</span>
-                                </div>
-                                <div class="flex space-x-4">
-                                    <a href="https://github.com/rishabhsj/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-400 transition-colors">
-                                        <i data-lucide="github" class="h-4 w-4 mr-1 inline"></i>
-                                        Code
-                                    </a>
-                                </div>
-                            </div>
+                            <a href="https://github.com/rishabhsj/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-md text-sm transition-all">
+                                <i data-lucide="github" class="h-4 w-4"></i>
+                                View Code
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Navigation arrows -->
-                <div class="swiper-button-prev !text-blue-500 !text-4xl"></div>
-                <div class="swiper-button-next !text-blue-500 !text-4xl"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
 
                 <!-- Pagination dots -->
-                <div class="swiper-pagination !bottom-0"></div>
+                <div class="swiper-pagination"></div>
             </div>
-            
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section class="py-20 bg-gray-800">
+    <section id="testimonials" class="section py-20">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold mb-4">What People Say</h2>
-                <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
-            </div>
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">What People Say</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-gray-900 rounded-lg p-6 shadow-lg card-hover">
-                    <div class="flex items-center mb-4">
-                        <div class="h-12 w-12 mr-4 bg-blue-500 rounded-full flex items-center justify-center text-white font-semibold">
-                            AA
+            <!-- Swiper Container for Testimonials -->
+            <div class="swiper testimonials-swiper">
+                <div class="swiper-wrapper">
+                    <!-- Testimonial 1 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card bg-gray-800 p-8 rounded-xl shadow-lg h-full">
+                            <p class="italic text-gray-300 mb-6">"Rishabh is an exceptional engineer with a keen eye for detail and a passion for problem-solving. His contributions to our data infrastructure have been invaluable."</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center">
+                                    <i data-lucide="user" class="h-6 w-6 text-gray-400"></i>
+									AA
+                                </div>
+                            </div>
                         </div>
-                        <!-- <div>
-                            <h4 class="font-semibold">Sarah Chen</h4>
-                            <p class="text-sm text-gray-400">Frontend Developer at Tech Corp</p>
-                        </div> -->
                     </div>
-                    
-                    <p class="text-gray-300 italic mb-4">
-                        "Rishabh and I have worked on various projects and attended a lot of workshops together. He always believes in making an optimised code and this attitude helped us to win one of the national level competition we participated during our college days. Rishabh was also a part of our college cultural fest where he was responsible to manage the entire execution of the event and also a core member in the selection committee. In a nutshell Rishabh is good in both technical and managerial roles and it was an awesome experience for me to work with him."
-                    </p>
-                
+
+                    <!-- Add your other testimonials here as swiper-slide, similar structure -->
+                    <!-- Testimonial 2 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card bg-gray-800 p-8 rounded-xl shadow-lg h-full">
+                            <p class="italic text-gray-300 mb-6">"Rishabh has been my exceptional student for four years and I have taught him subjects like Computer Organization and Architecture, Microprocessor, Embedded Systems and Internet of Things and High Performance Computing. This has provided me with ample opportunities to closely observe him and I found Rishabh is highly perceptive individual with strong principles and great self-initiative."</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center">
+                                    <i data-lucide="user" class="h-6 w-6 text-gray-400"></i>
+									MS
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					
+										
+					<!-- Testimonial 3 -->
+					<div class="swiper-slide">
+                        <div class="testimonial-card bg-gray-800 p-8 rounded-xl shadow-lg h-full">
+                            <p class="italic text-gray-300 mb-6">"Rishabh has the best people skills and has been creative throughout. He has interacted with people during various Technical events and has handled many of the placement drives independently displaying great leadership skills. He has collaborated to create websites for student welfare and has exhibited great expertise in android applications and coding. His ability to adapt to any situation joyously and manage multiple tasks with ease makes him invaluable for any organisation."</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center">
+                                    <i data-lucide="user" class="h-6 w-6 text-gray-400"></i>
+									JP
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					
+					<!-- Testimonial 4 -->
+					<div class="swiper-slide">
+                        <div class="testimonial-card bg-gray-800 p-8 rounded-xl shadow-lg h-full">
+                            <p class="italic text-gray-300 mb-6">"Rishabh Jain is a very soft-spoken and humble. He has the most important Skill of Leadership & especially taking lots of Initiatives, and is very Good in Communication Skills. He has taken a lot of effort to gain knowledge and skills in his field. I strongly recommend his name as a very young dynamic leader with unlimited potentials with a humble heart and a good team person."</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center">
+                                    <i data-lucide="user" class="h-6 w-6 text-gray-400"></i>
+									SM
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					
+					<!-- Testimonial 5 -->
+					<div class="swiper-slide">
+                        <div class="testimonial-card bg-gray-800 p-8 rounded-xl shadow-lg h-full">
+                            <p class="italic text-gray-300 mb-6">"Rishabh's mentoring helped me transition into tech. His practical approach and patience made complex concepts easy to understand."</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center">
+                                    <i data-lucide="user" class="h-6 w-6 text-gray-400"></i>
+									SC
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					
+					<!-- Testimonial 6 -->
+					<div class="swiper-slide">
+                        <div class="testimonial-card bg-gray-800 p-8 rounded-xl shadow-lg h-full">
+                            <p class="italic text-gray-300 mb-6">"Working with Rishabh on open source projects was amazing. His code quality and architecture decisions are top-notch."</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center">
+                                    <i data-lucide="user" class="h-6 w-6 text-gray-400"></i>
+									AK
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					
+					<!-- Testimonial 7 -->
+					<div class="swiper-slide">
+                        <div class="testimonial-card bg-gray-800 p-8 rounded-xl shadow-lg h-full">
+                            <p class="italic text-gray-300 mb-6">"Rishabh's technical workshops were incredibly valuable. He explains complex topics in a way that's easy to grasp and implement."</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center">
+                                    <i data-lucide="user" class="h-6 w-6 text-gray-400"></i>
+									MR
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
-                <!-- Testimonial 2 -->
-                <div class="bg-gray-900 rounded-lg p-6 shadow-lg card-hover">
-                    <div class="flex items-center mb-4">
-                        <div class="h-12 w-12 mr-4 bg-blue-500 rounded-full flex items-center justify-center text-white font-semibold">
-                            MS
-                        </div>
-                        <!-- <div>
-                            <h4 class="font-semibold">Sarah Chen</h4>
-                            <p class="text-sm text-gray-400">Frontend Developer at Tech Corp</p>
-                        </div> -->
-                    </div>
-                    
-                    <p class="text-gray-300 italic mb-4">
-                        "Rishabh has been my exceptional student for four years and I have taught him subjects like Computer Organization and Architecture, Microprocessor, Embedded Systems and Internet of Things and High Performance Computing. This has provided me with ample opportunities to closely observe him and I found Rishabh is highly perceptive individual with strong principles and great self-initiative."
-                    </p>
-                    
-                </div>
+                <!-- Navigation arrows -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
 
-                <!-- Testimonial 3 -->
-                <div class="bg-gray-900 rounded-lg p-6 shadow-lg card-hover">
-                    <div class="flex items-center mb-4">
-                        <div class="h-12 w-12 mr-4 bg-blue-500 rounded-full flex items-center justify-center text-white font-semibold">
-                            JP
-                        </div>
-                        <!-- <div>
-                            <h4 class="font-semibold">Sarah Chen</h4>
-                            <p class="text-sm text-gray-400">Frontend Developer at Tech Corp</p>
-                        </div> -->
-                    </div>
-                    
-                    <p class="text-gray-300 italic mb-4">
-                        "Rishabh has the best people skills and has been creative throughout. He has interacted with people during various Technical events and has handled many of the placement drives independently displaying great leadership skills. He has collaborated to create websites for student welfare and has exhibited great expertise in android applications and coding. His ability to adapt to any situation joyously and manage multiple tasks with ease makes him invaluable for any organisation."
-                    </p>
-                    
-                </div>
-
-                <!-- Testimonial 4 -->
-                <div class="bg-gray-900 rounded-lg p-6 shadow-lg card-hover">
-                    <div class="flex items-center mb-4">
-                        <div class="h-12 w-12 mr-4 bg-blue-500 rounded-full flex items-center justify-center text-white font-semibold">
-                            SM
-                        </div>
-                        <!-- <div>
-                            <h4 class="font-semibold">Sarah Chen</h4>
-                            <p class="text-sm text-gray-400">Frontend Developer at Tech Corp</p>
-                        </div> -->
-                    </div>
-                    
-                    <p class="text-gray-300 italic mb-4">
-                        "Rishabh Jain is a very soft-spoken and humble. He has the most important Skill of Leadership & especially taking lots of Initiatives, and is very Good in Communication Skills. He has taken a lot of effort to gain knowledge and skills in his field. I strongly recommend his name as a very young dynamic leader with unlimited potentials with a humble heart and a good team person."
-                    </p>
-
-                </div>
-                
-                <!-- Testimonial 5 -->
-                <div class="bg-gray-900 rounded-lg p-6 shadow-lg card-hover">
-                    <div class="flex items-center mb-4">
-                        <div class="h-12 w-12 mr-4 bg-blue-500 rounded-full flex items-center justify-center text-white font-semibold">
-                            SC
-                        </div>
-                        <!-- <div>
-                            <h4 class="font-semibold">Sarah Chen</h4>
-                            <p class="text-sm text-gray-400">Frontend Developer at Tech Corp</p>
-                        </div> -->
-                    </div>
-                    
-                    <p class="text-gray-300 italic mb-4">
-                        "Rishabh's mentoring helped me transition into tech. His practical approach and patience made complex concepts easy to understand."
-                    </p>
-                    
-                </div>
-
-                <!-- Testimonial 6 -->
-                <div class="bg-gray-900 rounded-lg p-6 shadow-lg card-hover">
-                    <div class="flex items-center mb-4">
-                        <div class="h-12 w-12 mr-4 bg-blue-500 rounded-full flex items-center justify-center text-white font-semibold">
-                            AK
-                        </div>
-                        <!-- <div>
-                            <h4 class="font-semibold">Alex Kumar</h4>
-                            <p class="text-sm text-gray-400">Backend Engineer at StartupXYZ</p>
-                        </div> -->
-                    </div>
-                    
-                    <p class="text-gray-300 italic mb-4">
-                        "Working with Rishabh on open source projects was amazing. His code quality and architecture decisions are top-notch."
-                    </p>
-                    
-                </div>
-
-                <!-- Testimonial 7 -->
-                <div class="bg-gray-900 rounded-lg p-6 shadow-lg card-hover">
-                    <div class="flex items-center mb-4">
-                        <div class="h-12 w-12 mr-4 bg-blue-500 rounded-full flex items-center justify-center text-white font-semibold">
-                            MR
-                        </div>
-                        <!-- <div>
-                            <h4 class="font-semibold">Maria Rodriguez</h4>
-                            <p class="text-sm text-gray-400">Full Stack Developer at Innovation Labs</p>
-                        </div> -->
-                    </div>
-                    
-                    <p class="text-gray-300 italic mb-4">
-                        "Rishabh's technical workshops were incredibly valuable. He explains complex topics in a way that's easy to grasp and implement."
-                    </p>
-                    
-                </div>
+                <!-- Pagination dots -->
+                <div class="swiper-pagination"></div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20">
+    <section id="contact" class="section py-20 bg-dark">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl sm:text-4xl font-bold mb-4">Get In Touch</h2>
@@ -901,39 +700,10 @@
         </div>
     </footer>
 
-    <!-- Project Modal -->
-    <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4">
-        <div class="bg-gray-800 rounded-lg max-w-4xl max-h-[90vh] overflow-y-auto">
-            <div class="p-6">
-                <div class="flex justify-between items-start mb-6">
-                    <h2 id="modal-title" class="text-2xl font-bold text-blue-400"></h2>
-                    <button onclick="closeProjectModal()" class="text-gray-400 hover:text-white">
-                        <i data-lucide="x" class="h-6 w-6"></i>
-                    </button>
-                </div>
-                
-                <div id="modal-content" class="space-y-6">
-                    <!-- Content will be populated by JavaScript -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Notification Toast -->
-    <div id="toast" class="fixed bottom-4 right-4 bg-gray-800 text-white p-4 rounded-lg shadow-lg transform translate-y-full opacity-0 transition-all duration-300 z-50">
-        <div class="flex items-center">
-            <i data-lucide="check-circle" class="h-5 w-5 text-green-400 mr-2"></i>
-            <span id="toast-message"></span>
-        </div>
-    </div>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <!-- Custom JavaScript -->
     <script src="script.js"></script>
-
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </body>
 </html>
