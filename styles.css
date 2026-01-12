@@ -285,3 +285,42 @@ textarea:focus-visible {
 .grid-cols-1(md:grid-cols-2 lg:grid-cols-3) {
   gap: 2rem;
 }
+
+/* Swiper overrides for nicer look */
+.swiper-slide {
+    height: auto !important; /* important for variable height cards */
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: #3b82f6 !important;
+    background: rgba(0,0,0,0.4);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    background: rgba(59, 130, 246, 0.6);
+    transform: scale(1.1);
+}
+
+.swiper-pagination-bullet {
+    background: #64748b !important;
+    opacity: 0.6;
+}
+
+.swiper-pagination-bullet-active {
+    background: #3b82f6 !important;
+    opacity: 1;
+}
+
+/* Optional: make slides look better on mobile */
+@media (max-width: 640px) {
+    .swiper-slide .project-card,
+    .swiper-slide .testimonial-card {
+        margin: 0 8px;
+    }
+}
