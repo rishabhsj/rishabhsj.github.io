@@ -447,6 +447,39 @@ function throttle(func, wait) {
     };
 }
 
+// Initialize Projects Carousel
+const projectsSwiper = new Swiper('.projects-swiper', {
+    // Responsive breakpoints
+    slidesPerView: 1,          // mobile - 1 card
+    spaceBetween: 24,
+
+    breakpoints: {
+        640: { slidesPerView: 2, spaceBetween: 32 },   // tablet
+        1024: { slidesPerView: 3, spaceBetween: 40 },  // desktop
+    },
+
+    // Navigation arrows
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+
+    // Pagination dots
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+
+    // Nice effects
+    loop: true,                    // infinite loop
+    autoplay: {
+        delay: 5000,               // auto slide every 5 seconds
+        disableOnInteraction: false,
+    },
+    speed: 800,                    // smooth transition
+    grabCursor: true,
+    centeredSlides: false,
+});
 // Apply throttling to scroll-heavy functions
 window.addEventListener('scroll', throttle(function() {
     updateActiveSection();
