@@ -492,134 +492,154 @@
                 <button onclick="filterProjects('opensource')" class="filter-btn px-4 py-2 border border-gray-600 text-gray-300 rounded-md hover:bg-gray-700 transition-all">Open Source</button>
                 <button onclick="filterProjects('platform')" class="filter-btn px-4 py-2 border border-gray-600 text-gray-300 rounded-md hover:bg-gray-700 transition-all">Platform</button>
             </div> -->
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card bg-gray-800 rounded-lg overflow-hidden shadow-lg card-hover" data-category="web">
-                    <div class="relative group">
-                        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="ML & NLP" class="w-full h-48 object-cover">
-                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+
+            <div class="swiper projects-swiper">
+                <div class="swiper-wrapper">
+                    <!-- Each project becomes a slide -->
+                    <!-- Project 1 -->
+                    <div class="swiper-slide">
+                        <div class="project-card bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-105">
+                            <div class="relative group">
+                                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="ML & NLP" class="w-full h-48 object-cover">
+                                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-blue-400 mb-3">User Authentication using NLP & ML</h3>
+                                <p class="text-gray-300 mb-4">Built biometric authentication system using facial and speech recognition with Python, TensorFlow, and OpenCV. Processed 1+ million audio and image records.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Python</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">TensorFlow</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">OpenCV</span>
+                                    <span class="bg-gray-600 text-gray-400 px-2 py-1 rounded text-sm">+1 more</span>
+                                </div>
+                                <div class="flex space-x-4">
+                                    <a href="https://github.com/rishabhsj/User_Authentication_Using_Facial-Speech_Recognition" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-400 transition-colors">
+                                        <i data-lucide="github" class="h-4 w-4 mr-1 inline"></i>
+                                        Code
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-blue-400 mb-3">User Authentication using NLP & ML</h3>
-                        <p class="text-gray-300 mb-4">Built biometric authentication system using facial and speech recognition with Python, TensorFlow, and OpenCV. Processed 1+ million audio and image records.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Python</span>
-                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">TensorFlow</span>
-                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">OpenCV</span>
-                            <span class="bg-gray-600 text-gray-400 px-2 py-1 rounded text-sm">+1 more</span>
+
+                    <!-- Project 2 -->
+                    <div class="swiper-slide">
+                        <div class="project-card bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-105">   
+                            <div class="relative group">
+                                <img src="https://images.unsplash.com/photo-1556075798-4825dfaaf498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="IoT & Data" class="w-full h-48 object-cover">
+                                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-blue-400 mb-3">Smart Control System in Automobile</h3>
+                                <p class="text-gray-300 mb-4">Developed real-time data pipeline processing sensor telemetry using Python and Raspberry Pi for automated vehicle controls with sub-second latency.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Python</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">IOT</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Real-time</span>
+                                    <span class="bg-gray-600 text-gray-400 px-2 py-1 rounded text-sm">+2 more</span>
+                                </div>
+                                <div class="flex space-x-4">
+                                    <a href="https://github.com/rishabhsj/Smart-Control-System-in-Automobile" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-400 transition-colors">
+                                        <i data-lucide="github" class="h-4 w-4 mr-1 inline"></i>
+                                        Code
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="flex space-x-4">
-                            <a href="https://github.com/rishabhsj/User_Authentication_Using_Facial-Speech_Recognition" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-400 transition-colors">
-                                <i data-lucide="github" class="h-4 w-4 mr-1 inline"></i>
-                                Code
-                            </a>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="swiper-slide">
+                        <div class="project-card bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-105">
+                            <div class="relative group">
+                                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="Online Examination Portal" class="w-full h-48 object-cover">
+                                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-blue-400 mb-3">Online Examination Portal & College Predictor</h3>
+                                <p class="text-gray-300 mb-4">Designed normalised MySQL schemas and built SQL-based analytics for exam results and college prediction using statistical algorithms.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">MySQL</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Postgres</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Analytics</span>
+                                    <span class="bg-gray-600 text-gray-400 px-2 py-1 rounded text-sm">+1 more</span>
+                                </div>
+                                <div class="flex space-x-4">
+                                    <a href="https://github.com/rishabhsj/Online-Examination-Portal" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-400 transition-colors">
+                                        <i data-lucide="github" class="h-4 w-4 mr-1 inline"></i>
+                                        Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="swiper-slide">
+                        <div class="project-card bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-105">
+                            <div class="relative group">
+                                <img src="https://unsplash.com/photos/a-cell-phone-is-connected-to-a-light-switch-We56jns_zLE" alt="Home Automation and Security System" class="w-full h-48 object-cover">
+                                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-blue-400 mb-3">Home Automation and Security System</h3>
+                                <p class="text-gray-300 mb-4"> College-sponsored project on home automation system using IOT for controlling the home appliances and various devices using the internet and cloud to advance security in the home.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">IOT</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Python</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Cloud Computing</span>
+                                    <span class="bg-gray-600 text-gray-400 px-2 py-1 rounded text-sm">+1 more</span>
+                                </div>
+                                <div class="flex space-x-4">
+                                    <a href="https://github.com/rishabhsj/Home-Automation-and-Security-System" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-400 transition-colors">
+                                        <i data-lucide="github" class="h-4 w-4 mr-1 inline"></i>
+                                        Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="swiper-slide">
+                        <div class="project-card bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-105">
+                            <div class="relative group">
+                                <img src="https://unsplash.com/photos/woman-using-smartphone-ugXAdG6tJgo" alt="Training & Placement App" class="w-full h-48 object-cover">
+                                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-blue-400 mb-3">Training & Placement App</h3>
+                                <p class="text-gray-300 mb-4">Android app for Training and Placement Cell of PCET’s PCCOER involving placement activities and student interactions.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Android Studio</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">PHP</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">MYSQL</span>
+                                    <span class="bg-gray-600 text-gray-400 px-2 py-1 rounded text-sm">+1 more</span>
+                                </div>
+                                <div class="flex space-x-4">
+                                    <a href="https://github.com/rishabhsj/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-400 transition-colors">
+                                        <i data-lucide="github" class="h-4 w-4 mr-1 inline"></i>
+                                        Code
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 2 -->
-                <div class="project-card bg-gray-800 rounded-lg overflow-hidden shadow-lg card-hover" data-category="opensource">
-                    <div class="relative group">
-                        <img src="https://images.unsplash.com/photo-1556075798-4825dfaaf498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="IoT & Data" class="w-full h-48 object-cover">
-                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-blue-400 mb-3">Smart Control System in Automobile</h3>
-                        <p class="text-gray-300 mb-4">Developed real-time data pipeline processing sensor telemetry using Python and Raspberry Pi for automated vehicle controls with sub-second latency.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Python</span>
-                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">IOT</span>
-                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Real-time</span>
-                            <span class="bg-gray-600 text-gray-400 px-2 py-1 rounded text-sm">+2 more</span>
-                        </div>
-                        <div class="flex space-x-4">
-                            <a href="https://github.com/rishabhsj/Smart-Control-System-in-Automobile" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-400 transition-colors">
-                                <i data-lucide="github" class="h-4 w-4 mr-1 inline"></i>
-                                Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <!-- Navigation arrows (optional but recommended) -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
 
-                <!-- Project 3 -->
-                <div class="project-card bg-gray-800 rounded-lg overflow-hidden shadow-lg card-hover" data-category="platform">
-                    <div class="relative group">
-                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="Online Examination Portal" class="w-full h-48 object-cover">
-                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-blue-400 mb-3">Online Examination Portal & College Predictor</h3>
-                        <p class="text-gray-300 mb-4">Designed normalised MySQL schemas and built SQL-based analytics for exam results and college prediction using statistical algorithms.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">MySQL</span>
-                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Postgres</span>
-                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Analytics</span>
-                            <span class="bg-gray-600 text-gray-400 px-2 py-1 rounded text-sm">+1 more</span>
-                        </div>
-                        <div class="flex space-x-4">
-                            <a href="https://github.com/rishabhsj/Online-Examination-Portal" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-400 transition-colors">
-                                <i data-lucide="github" class="h-4 w-4 mr-1 inline"></i>
-                                Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                 <!-- Project 4 -->
-                <div class="project-card bg-gray-800 rounded-lg overflow-hidden shadow-lg card-hover" data-category="platform">
-                    <div class="relative group">
-                        <img src="https://unsplash.com/photos/a-cell-phone-is-connected-to-a-light-switch-We56jns_zLE" alt="Home Automation and Security System" class="w-full h-48 object-cover">
-                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-blue-400 mb-3">Home Automation and Security System</h3>
-                        <p class="text-gray-300 mb-4"> College-sponsored project on home automation system using IOT for controlling the home appliances and various devices using the internet and cloud to advance security in the home.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">IOT</span>
-                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Python</span>
-                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Cloud Computing</span>
-                            <span class="bg-gray-600 text-gray-400 px-2 py-1 rounded text-sm">+1 more</span>
-                        </div>
-                        <div class="flex space-x-4">
-                            <a href="https://github.com/rishabhsj/Home-Automation-and-Security-System" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-400 transition-colors">
-                                <i data-lucide="github" class="h-4 w-4 mr-1 inline"></i>
-                                Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                 <!-- Project 5 -->
-                <div class="project-card bg-gray-800 rounded-lg overflow-hidden shadow-lg card-hover" data-category="platform">
-                    <div class="relative group">
-                        <img src="https://unsplash.com/photos/woman-using-smartphone-ugXAdG6tJgo" alt="Training & Placement App" class="w-full h-48 object-cover">
-                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-blue-400 mb-3">Training & Placement App</h3>
-                        <p class="text-gray-300 mb-4">Android app for Training and Placement Cell of PCET’s PCCOER involving placement activities and student interactions.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Android Studio</span>
-                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">PHP</span>
-                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">MYSQL</span>
-                            <span class="bg-gray-600 text-gray-400 px-2 py-1 rounded text-sm">+1 more</span>
-                        </div>
-                        <div class="flex space-x-4">
-                            <a href="https://github.com/rishabhsj/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-400 transition-colors">
-                                <i data-lucide="github" class="h-4 w-4 mr-1 inline"></i>
-                                Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
+                <!-- Pagination dots -->
+                <div class="swiper-pagination"></div>
             </div>
+            
         </div>
     </section>
 
