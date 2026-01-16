@@ -650,115 +650,226 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="section py-20">
+    <!-- Testimonials Carousel Section - REPLACE YOUR EXISTING TESTIMONIALS SECTION WITH THIS -->
+    <section id="testimonials" class="py-20 bg-gray-800">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">What People Say</h2>
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">What People Say</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
+                <p class="text-gray-300 mt-4">Testimonials from colleagues, mentors, and mentees</p>
+            </div>
             
             <!-- Swiper Container for Testimonials -->
             <div class="swiper testimonials-swiper">
                 <div class="swiper-wrapper">
                     <!-- Testimonial 1 -->
                     <div class="swiper-slide">
-                        <div class="testimonial-card bg-gray-800 p-8 rounded-xl shadow-lg h-full">
-                            <p class="italic text-gray-300 mb-6">"Rishabh is an exceptional engineer with a keen eye for detail and a passion for problem-solving. His contributions to our data infrastructure have been invaluable."</p>
-                            <div class="flex items-center gap-3">
-                                <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center">
-                                    <i data-lucide="user" class="h-6 w-6 text-gray-400"></i>
-									AA
+                        <div class="testimonial-card bg-gray-900 rounded-xl p-8 shadow-xl h-full flex flex-col relative overflow-hidden">
+                            <!-- Quote Icon -->
+                            <div class="absolute top-4 right-6 text-6xl text-blue-500/10 font-serif">"</div>
+                            
+                            <!-- Card Content -->
+                            <div class="relative z-10 flex-grow">
+                                <p class="text-gray-300 italic mb-6 text-base leading-relaxed">
+                                    "Rishabh is an exceptional engineer with a keen eye for detail and a passion for problem-solving. His contributions to our data infrastructure have been invaluable."
+                                </p>
+                            </div>
+                            
+                            <!-- Author Section -->
+                            <div class="flex items-center gap-4 mt-6 pt-6 border-t border-gray-700">
+                                <div class="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                                    AA
+                                </div>
+                                <div class="flex-grow">
+                                    <h4 class="font-semibold text-white">Anonymous</h4>
+                                    <p class="text-sm text-gray-400">Colleague</p>
+                                    <div class="flex gap-1 mt-2">
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Add your other testimonials here as swiper-slide, similar structure -->
                     <!-- Testimonial 2 -->
                     <div class="swiper-slide">
-                        <div class="testimonial-card bg-gray-800 p-8 rounded-xl shadow-lg h-full">
-                            <p class="italic text-gray-300 mb-6">"Rishabh has been my exceptional student for four years and I have taught him subjects like Computer Organization and Architecture, Microprocessor, Embedded Systems and Internet of Things and High Performance Computing. This has provided me with ample opportunities to closely observe him and I found Rishabh is highly perceptive individual with strong principles and great self-initiative."</p>
-                            <div class="flex items-center gap-3">
-                                <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center">
-                                    <i data-lucide="user" class="h-6 w-6 text-gray-400"></i>
-									MS
-                                </div>
+                        <div class="testimonial-card bg-gray-900 rounded-xl p-8 shadow-xl h-full flex flex-col relative overflow-hidden">
+                            <div class="absolute top-4 right-6 text-6xl text-blue-500/10 font-serif">"</div>
+                            <div class="relative z-10 flex-grow">
+                                <p class="text-gray-300 italic mb-6 text-base leading-relaxed">
+                                    "Rishabh has been my exceptional student for four years. I found him to be a highly perceptive individual with strong principles and great self-initiative. He excels in technical subjects."
+                                </p>
                             </div>
-                        </div>
-                    </div>
-					
-										
-					<!-- Testimonial 3 -->
-					<div class="swiper-slide">
-                        <div class="testimonial-card bg-gray-800 p-8 rounded-xl shadow-lg h-full">
-                            <p class="italic text-gray-300 mb-6">"Rishabh has the best people skills and has been creative throughout. He has interacted with people during various Technical events and has handled many of the placement drives independently displaying great leadership skills. He has collaborated to create websites for student welfare and has exhibited great expertise in android applications and coding. His ability to adapt to any situation joyously and manage multiple tasks with ease makes him invaluable for any organisation."</p>
-                            <div class="flex items-center gap-3">
-                                <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center">
-                                    <i data-lucide="user" class="h-6 w-6 text-gray-400"></i>
-									JP
+                            <div class="flex items-center gap-4 mt-6 pt-6 border-t border-gray-700">
+                                <div class="w-14 h-14 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                                    MS
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-					
-					<!-- Testimonial 4 -->
-					<div class="swiper-slide">
-                        <div class="testimonial-card bg-gray-800 p-8 rounded-xl shadow-lg h-full">
-                            <p class="italic text-gray-300 mb-6">"Rishabh Jain is a very soft-spoken and humble. He has the most important Skill of Leadership & especially taking lots of Initiatives, and is very Good in Communication Skills. He has taken a lot of effort to gain knowledge and skills in his field. I strongly recommend his name as a very young dynamic leader with unlimited potentials with a humble heart and a good team person."</p>
-                            <div class="flex items-center gap-3">
-                                <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center">
-                                    <i data-lucide="user" class="h-6 w-6 text-gray-400"></i>
-									SM
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-					
-					<!-- Testimonial 5 -->
-					<div class="swiper-slide">
-                        <div class="testimonial-card bg-gray-800 p-8 rounded-xl shadow-lg h-full">
-                            <p class="italic text-gray-300 mb-6">"Rishabh's mentoring helped me transition into tech. His practical approach and patience made complex concepts easy to understand."</p>
-                            <div class="flex items-center gap-3">
-                                <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center">
-                                    <i data-lucide="user" class="h-6 w-6 text-gray-400"></i>
-									SC
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-					
-					<!-- Testimonial 6 -->
-					<div class="swiper-slide">
-                        <div class="testimonial-card bg-gray-800 p-8 rounded-xl shadow-lg h-full">
-                            <p class="italic text-gray-300 mb-6">"Working with Rishabh on open source projects was amazing. His code quality and architecture decisions are top-notch."</p>
-                            <div class="flex items-center gap-3">
-                                <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center">
-                                    <i data-lucide="user" class="h-6 w-6 text-gray-400"></i>
-									AK
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-					
-					<!-- Testimonial 7 -->
-					<div class="swiper-slide">
-                        <div class="testimonial-card bg-gray-800 p-8 rounded-xl shadow-lg h-full">
-                            <p class="italic text-gray-300 mb-6">"Rishabh's technical workshops were incredibly valuable. He explains complex topics in a way that's easy to grasp and implement."</p>
-                            <div class="flex items-center gap-3">
-                                <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center">
-                                    <i data-lucide="user" class="h-6 w-6 text-gray-400"></i>
-									MR
+                                <div class="flex-grow">
+                                    <h4 class="font-semibold text-white">MS</h4>
+                                    <p class="text-sm text-gray-400">Professor & Mentor</p>
+                                    <div class="flex gap-1 mt-2">
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Testimonial 3 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card bg-gray-900 rounded-xl p-8 shadow-xl h-full flex flex-col relative overflow-hidden">
+                            <div class="absolute top-4 right-6 text-6xl text-blue-500/10 font-serif">"</div>
+                            <div class="relative z-10 flex-grow">
+                                <p class="text-gray-300 italic mb-6 text-base leading-relaxed">
+                                    "Rishabh has the best people skills and has been creative throughout. He displays great leadership during technical events. His ability to adapt makes him invaluable."
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-4 mt-6 pt-6 border-t border-gray-700">
+                                <div class="w-14 h-14 rounded-full bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                                    JP
+                                </div>
+                                <div class="flex-grow">
+                                    <h4 class="font-semibold text-white">JP</h4>
+                                    <p class="text-sm text-gray-400">Academic Coordinator</p>
+                                    <div class="flex gap-1 mt-2">
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 4 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card bg-gray-900 rounded-xl p-8 shadow-xl h-full flex flex-col relative overflow-hidden">
+                            <div class="absolute top-4 right-6 text-6xl text-blue-500/10 font-serif">"</div>
+                            <div class="relative z-10 flex-grow">
+                                <p class="text-gray-300 italic mb-6 text-base leading-relaxed">
+                                    "Rishabh is soft-spoken and humble with exceptional leadership skills. Excellent in communication and very good team person with unlimited potential."
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-4 mt-6 pt-6 border-t border-gray-700">
+                                <div class="w-14 h-14 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                                    SM
+                                </div>
+                                <div class="flex-grow">
+                                    <h4 class="font-semibold text-white">SM</h4>
+                                    <p class="text-sm text-gray-400">Faculty Mentor</p>
+                                    <div class="flex gap-1 mt-2">
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 5 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card bg-gray-900 rounded-xl p-8 shadow-xl h-full flex flex-col relative overflow-hidden">
+                            <div class="absolute top-4 right-6 text-6xl text-blue-500/10 font-serif">"</div>
+                            <div class="relative z-10 flex-grow">
+                                <p class="text-gray-300 italic mb-6 text-base leading-relaxed">
+                                    "Rishabh's mentoring helped me transition into tech. His practical approach and patience made complex concepts easy to understand."
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-4 mt-6 pt-6 border-t border-gray-700">
+                                <div class="w-14 h-14 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                                    SC
+                                </div>
+                                <div class="flex-grow">
+                                    <h4 class="font-semibold text-white">SC</h4>
+                                    <p class="text-sm text-gray-400">Mentee</p>
+                                    <div class="flex gap-1 mt-2">
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 6 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card bg-gray-900 rounded-xl p-8 shadow-xl h-full flex flex-col relative overflow-hidden">
+                            <div class="absolute top-4 right-6 text-6xl text-blue-500/10 font-serif">"</div>
+                            <div class="relative z-10 flex-grow">
+                                <p class="text-gray-300 italic mb-6 text-base leading-relaxed">
+                                    "Working with Rishabh on open source projects was amazing. His code quality and architecture decisions are top-notch."
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-4 mt-6 pt-6 border-t border-gray-700">
+                                <div class="w-14 h-14 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                                    AK
+                                </div>
+                                <div class="flex-grow">
+                                    <h4 class="font-semibold text-white">AK</h4>
+                                    <p class="text-sm text-gray-400">Open Source Collaborator</p>
+                                    <div class="flex gap-1 mt-2">
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 7 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card bg-gray-900 rounded-xl p-8 shadow-xl h-full flex flex-col relative overflow-hidden">
+                            <div class="absolute top-4 right-6 text-6xl text-blue-500/10 font-serif">"</div>
+                            <div class="relative z-10 flex-grow">
+                                <p class="text-gray-300 italic mb-6 text-base leading-relaxed">
+                                    "Rishabh's technical workshops were incredibly valuable. He explains complex topics in a way that's easy to grasp and implement."
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-4 mt-6 pt-6 border-t border-gray-700">
+                                <div class="w-14 h-14 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                                    MR
+                                </div>
+                                <div class="flex-grow">
+                                    <h4 class="font-semibold text-white">MR</h4>
+                                    <p class="text-sm text-gray-400">Workshop Participant</p>
+                                    <div class="flex gap-1 mt-2">
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                        <i data-lucide="star" class="h-4 w-4 fill-yellow-400 text-yellow-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Navigation arrows -->
-                <div class="swiper-button-prev text-blue-500 text-4xl !opacity-80 hover:!opacity-100 transition-opacity"></div>
-            	<div class="swiper-button-next text-blue-500 text-4xl !opacity-80 hover:!opacity-100 transition-opacity"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
 
                 <!-- Pagination dots -->
-                <div class="swiper-pagination !bottom-4"></div>
+                <div class="swiper-pagination"></div>
             </div>
         </div>
     </section>
