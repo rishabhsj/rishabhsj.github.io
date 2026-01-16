@@ -1,6 +1,3 @@
-// script.js - Full Portfolio JavaScript
-// Last updated: January 13, 2026
-
 // Global variables
 let isMenuOpen = false;
 let isDarkTheme = true;
@@ -26,7 +23,6 @@ const projectData = {
         technologies: ["Python", "TensorFlow", "OpenCV"],
         github: "https://github.com/rishabhsj/User_Authentication_Using_Facial-Speech_Recognition"
     },
-    // ... other projects (omitted for brevity - keep your full object)
 };
 
 // Main initialization
@@ -40,20 +36,20 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeSkillsAnimation();
     initializeContactForm();
     initializeTheme();
-    initializeProjectModals(); // optional - comment out if not using modals
+    initializeProjectModals();
 
     // Initialize Swiper carousels
     initializeSwipers();
 });
 
-// ── 1. Lucide Icons ────────────────────────────────────────────────
+// ── 1. Lucide Icons ──────────────────────────────────────────────────────────
 function initializeLucideIcons() {
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
     }
 }
 
-// ── 2. Typing Animation ────────────────────────────────────────────
+// ── 2. Typing Animation ──────────────────────────────────────────────────────
 function initializeTypingAnimation() {
     const typingElement = document.getElementById('typing-text');
     if (!typingElement) return;
@@ -82,7 +78,7 @@ function initializeTypingAnimation() {
     typeText();
 }
 
-// ── 3. Navigation & Scroll Spy ─────────────────────────────────────
+// ── 3. Navigation & Scroll Spy ───────────────────────────────────────────────
 function initializeNavigation() {
     const navigation = document.getElementById('navigation');
     
@@ -97,7 +93,7 @@ function initializeNavigation() {
 }
 
 function updateActiveSection() {
-    const sections = ['home', 'about', 'experience', 'skills', 'projects', 'contact'];
+    const sections = ['home', 'about', 'experience', 'skills', 'projects', 'testimonials', 'contact'];
     const navItems = document.querySelectorAll('.nav-item');
     
     for (const section of sections) {
@@ -120,7 +116,7 @@ function updateActiveSection() {
     }
 }
 
-// ── 4. Scroll Animations ───────────────────────────────────────────
+// ── 4. Scroll Animations ─────────────────────────────────────────────────────
 function initializeScrollEffects() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -133,7 +129,7 @@ function initializeScrollEffects() {
     document.querySelectorAll('section').forEach(section => observer.observe(section));
 }
 
-// ── 5. Skills Progress Bars ────────────────────────────────────────
+// ── 5. Skills Progress Bars ──────────────────────────────────────────────────
 function initializeSkillsAnimation() {
     const skillsObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -160,7 +156,7 @@ function animateSkillBars() {
     });
 }
 
-// ── 6. Contact Form (Formspree) ────────────────────────────────────
+// ── 6. Contact Form (Formspree) ──────────────────────────────────────────────
 function initializeContactForm() {
     const form = document.getElementById('contact-form');
     if (!form) return;
@@ -203,7 +199,7 @@ function initializeContactForm() {
     });
 }
 
-// ── 7. Theme Toggle ────────────────────────────────────────────────
+// ── 7. Theme Toggle ──────────────────────────────────────────────────────────
 function initializeTheme() {
     const savedTheme = localStorage.getItem('portfolio-theme');
     if (savedTheme === 'light') toggleTheme();
@@ -226,7 +222,7 @@ function toggleTheme() {
     localStorage.setItem('portfolio-theme', isDarkTheme ? 'dark' : 'light');
 }
 
-// ── 8. Mobile Menu ─────────────────────────────────────────────────
+// ── 8. Mobile Menu ───────────────────────────────────────────────────────────
 function toggleMobileMenu() {
     const mobileMenu = document.getElementById('mobile-menu');
     isMenuOpen = !isMenuOpen;
@@ -236,7 +232,7 @@ function toggleMobileMenu() {
     }
 }
 
-// ── 9. Utility Functions ───────────────────────────────────────────
+// ── 9. Utility Functions ─────────────────────────────────────────────────────
 function scrollToSection(sectionId) {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -245,10 +241,12 @@ function scrollToSection(sectionId) {
     }
 }
 
+// ✅ FIXED: Resume Download Function
 function downloadResume() {
     const link = document.createElement('a');
-    link.href = 'Rishabh_Jain_Resume.pdf'; // ← Update this path/filename
-    link.download = 'Rishabh_Jain_Resume.pdf';
+    link.href = 'Rishabh_Jain.pdf';  // Your actual PDF filename
+    link.download = 'Rishabh_Jain_Resume.pdf';  // Name for downloaded file
+    link.target = '_blank';  // Opens in new tab as fallback if download fails
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -266,7 +264,7 @@ function showToast(message) {
     }
 }
 
-// ── 10. Project Modal (optional) ──────────────────────────────────
+// ── 10. Project Modal (optional) ─────────────────────────────────────────────
 function initializeProjectModals() {
     // Uncomment and use only if you have project modal triggers in HTML
     // const cards = document.querySelectorAll('.project-card');
@@ -276,7 +274,7 @@ function initializeProjectModals() {
     // });
 }
 
-// ── 11. Swiper Carousels (THE MOST IMPORTANT PART) ────────────────
+// ── 11. Swiper Carousels (IMPORTANT) ─────────────────────────────────────────
 function initializeSwipers() {
     // Projects Carousel
     const projectsSwiper = new Swiper('.projects-swiper', {
@@ -310,12 +308,17 @@ function initializeSwipers() {
         slidesPerView: 1,
         spaceBetween: 32,
         loop: true,
+        grabCursor: true,
         autoplay: {
             delay: 6000,
             disableOnInteraction: false,
         },
+        navigation: {
+            nextEl: '.testimonials-swiper .swiper-button-next',
+            prevEl: '.testimonials-swiper .swiper-button-prev',
+        },
         pagination: {
-            el: '.swiper-pagination',
+            el: '.testimonials-swiper .swiper-pagination',
             clickable: true,
         },
         breakpoints: {
